@@ -157,7 +157,7 @@
     }
 
     .hero-name em {
-      font-style: italic;
+      font-style: normal;
       color: var(--gold);
     }
 
@@ -1352,10 +1352,12 @@
       .tools-grid { grid-template-columns: 1fr; }
       .tool-row { flex-direction: column; gap: 8px; }
       .tool-row-label { min-width: unset; }
+      .bubble { display: none; }
     }
 
     @media (max-width: 600px) {
       .skills-categories { grid-template-columns: 1fr; }
+      .bubble { display: none; }
     }
 
     /* ── CONTACT ────────────────────────────────────────────────────── */
