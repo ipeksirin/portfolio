@@ -1686,8 +1686,11 @@
       0%, 100% { opacity: 1; }
       50%       { opacity: 0; }
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1500px) {
       .tools-col { display: none; }
+    }
+    .tools-col {
+      transition: opacity 0.4s ease;
     }
 
   </style>
@@ -2698,6 +2701,17 @@
         buildColumn('tools-col-right', RIGHT_TOOLS);
         positionColumns();
         setTimeout(runLoop, 350);
+
+        // Hero section dışına çıkılınca tool columns'ı gizle
+        var heroSection = document.querySelector('.hero');
+        if (heroSection && window.IntersectionObserver) {
+          var obs = new IntersectionObserver(function (entries) {
+            var visible = entries[0].isIntersecting;
+            document.getElementById('tools-col-left').style.opacity  = visible ? '1' : '0';
+            document.getElementById('tools-col-right').style.opacity = visible ? '1' : '0';
+          }, { threshold: 0.05 });
+          obs.observe(heroSection);
+        }
       });
     })();
   </script>
