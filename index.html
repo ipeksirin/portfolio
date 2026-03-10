@@ -2484,16 +2484,6 @@
           });
         }
 
-        // — BUBBLES (desktop only) —
-        if (project.bubbles && project.bubbles.length && window.innerWidth > 900) {
-          project.bubbles.forEach(b => {
-            const bubble = document.createElement('span');
-            bubble.className = 'bubble' + (b.metric ? ' metric' : '');
-            bubble.textContent = b.text;
-            bubble.setAttribute('style', b.style);
-            phonesDiv.appendChild(bubble);
-          });
-        }
 
         section.appendChild(textDiv);
         section.appendChild(phonesDiv);
