@@ -9,17 +9,17 @@
     /* ── FONTS ─────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Playfair';
-      src: url('../assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+      src: url('../../assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
       font-weight: 400;
     }
     @font-face {
       font-family: 'Playfair';
-      src: url('../assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+      src: url('../../assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
       font-weight: 700;
     }
     @font-face {
       font-family: 'Inter';
-      src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+      src: url('../../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
       font-weight: 100 900;
     }
 
@@ -1718,9 +1718,9 @@
     <div class="nav-right">
       <span class="nav-role" lang="en" data-i18n="nav.role">AI Marketing Design Lead</span>
       <span class="lang-switch">
-        <span class="lang-active">TR</span>
+        <a href="../index.html" class="lang-link">TR</a>
         <span class="lang-sep">/</span>
-        <a href="en/index.html" class="lang-link">EN</a>
+        <span class="lang-active">EN</span>
       </span>
     </div>
   </nav>
@@ -1791,7 +1791,7 @@
             </div>
             <div class="browser-url"></div>
           </div>
-          <img src="screenshots/screen1.png" alt="Claude Code Content Engine"
+          <img src="../screenshots/screen1.png" alt="Claude Code Content Engine"
                onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshot ekle → screenshots/screen1.png</div>'">
         </div>
         <div class="screen-browser screen-secondary">
@@ -1803,7 +1803,7 @@
             </div>
             <div class="browser-url"></div>
           </div>
-          <img src="screenshots/screen2.png" alt="Claude Code Content Engine"
+          <img src="../screenshots/screen2.png" alt="Claude Code Content Engine"
                onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/screen2.png</div>'">
         </div>
         <div class="screen-browser screen-tertiary">
@@ -1815,7 +1815,7 @@
             </div>
             <div class="browser-url"></div>
           </div>
-          <img src="screenshots/screen3.png" alt="Claude Code Content Engine"
+          <img src="../screenshots/screen3.png" alt="Claude Code Content Engine"
                onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/screen3.png</div>'">
         </div>
       </div>
@@ -1857,8 +1857,8 @@
     //   category : Sağ üstteki etiket  (ör: "Reel", "Carousel", "Story")
     //   tags     : Alt etiketler (dizi)
     //   videos   : Video dosya yolları (videos/ klasörüne koy)
-    //              Tek video  → ["videos/proje1.mp4"]
-    //              Çoklu      → ["videos/v1.mp4", "videos/v2.mp4"]
+    //              Tek video  → ["../videos/proje1.mp4"]
+    //              Çoklu      → ["../videos/v1.mp4", "../videos/v2.mp4"]
 
     const PROJECTS = [
       {
@@ -1867,7 +1867,7 @@
         desc_en: "I started my journey at Ouro Media as a Marketing Designer, which soon evolved into a Marketing Design Lead role. By focusing on strong storytelling, hook structures based on user psychology, and performance-driven creative strategies, I designed UGC videos, motion graphics, and short-form advertising content. The core focus of my work was building narratives that capture attention in the first seconds and creating scenarios that establish an emotional connection with the audience.",
         category: "MARKETING DESIGN LEAD",
         tags: ["Marketing Design Lead", "Marketing Performance", "UGC", "Storytelling", "Motion Graphics"],
-        videos: ["videos/kitup.mp4", "videos/adam_kitup.mp4", "videos/kitup_4.mp4"],
+        videos: ["../videos/kitup.mp4", "../videos/adam_kitup.mp4", "../videos/kitup_4.mp4"],
         bubbles: [
           { text: "STORYTELLING",      metric: false, style: "top: -40px; left: 20px;   --rot: -2deg; --dur: 5s;   --delay: 0.3s"  },
           { text: "PROMPT ENGINEERING",metric: false, style: "top: -40px; right: 15px;  --rot:  3deg; --dur: 4.8s; --delay: 1s"   },
@@ -1886,7 +1886,7 @@
         desc_en: "Mindguru is a habit-building and personal growth app focused on helping users build better routines. For the product, I created performance-driven ad creatives using storytelling and psychology-based hook structures.\n\nMy work included UGC-style videos, motion graphics, and short-form advertising concepts designed to capture attention instantly and resonate with audiences interested in self-development.",
         category: "MARKETING DESIGN LEAD",
         tags: ["Marketing Design Lead", "Marketing Performance", "UGC", "Storytelling", "Motion Graphics"],
-        videos: ["videos/ornek2a.mp4", "videos/animasyon.mp4", "videos/300_pages_2.mp4"]
+        videos: ["../videos/ornek2a.mp4", "../videos/animasyon.mp4", "../videos/300_pages_2.mp4"]
       },
       {
         title: "Türkiye Petrolleri",
@@ -1894,7 +1894,7 @@
         desc_en: "As an Art Director at One Digital Agency, I led the creative production of a corporate promotional video for Turkish Petroleum from concept to final delivery.<br><br>The process began with story development and storyboard design, followed by the creation of graphic assets and motion structure. Visual elements were designed in Photoshop, while animation and motion work were produced using After Effects.",
         category: "ART DIRECTOR",
         tags: ["Content Creation", "Motion Graphics", "Storyboard", "Illustration"],
-        videos: ["videos/TP.mp4", "videos/TP_1.mp4", "videos/TP_2.mp4"],
+        videos: ["../videos/TP.mp4", "../videos/TP_1.mp4", "../videos/TP_2.mp4"],
         mockup: "tablet"
       },
       {
@@ -1904,7 +1904,7 @@
         desc_en: "Produced monthly social media content for brands such as Lotus, Batiste, and Hepsiburada within Fevkinde Digital & Creative Agency, managing both motion and static formats.<br><br>Developed campaign concepts and visual directions aligned with each brand's tone and audience. Designed platform-specific social media assets, short-form motion content, and digital materials.<br><br>Also contributed to corporate identity projects by preparing visual guidelines, brand assets, and client presentations communicating creative concepts and campaign directions.",
         category: "ART DIRECTOR",
         tags: ["Social Media Content Plan", "Content Creation", "Motion Graphics"],
-        videos: ["videos/Lotus_1.mov", "videos/Lotus_2.mov", "videos/Lotus_3.mov"]
+        videos: ["../videos/Lotus_1.mov", "../videos/Lotus_2.mov", "../videos/Lotus_3.mov"]
       },
       {
         title: "Batiste — Fevkinde Kreatif Ajansı",
@@ -1913,7 +1913,7 @@
         desc_en: "Managed monthly social media content production for Batiste, defining visual directions aligned with the brand's tone and target audience. Designed platform-specific campaign creatives across both motion and static formats.<br><br>Contributed to the full creative process from concept ideation to final production, developing animations, social media visuals, and digital assets consistent with the brand's visual identity.",
         category: "ART DIRECTOR",
         tags: ["Social Media Content Plan", "Content Creation", "Motion Graphics"],
-        videos: ["videos/Batiste_1.mp4", "videos/Batiste_2.mp4", "videos/Btiste_3.mp4"]
+        videos: ["../videos/Batiste_1.mp4", "../videos/Batiste_2.mp4", "../videos/Btiste_3.mp4"]
       },
       {
         title: "Aztek Teknoloji",
@@ -1923,7 +1923,7 @@
         category: "ART DIRECTOR",
         tags: ["Content Creation", "Motion Graphics", "Storyboard", "Illustration", "Social Media"],
         mockup: "tablet",
-        videos: ["videos/JBL.mp4"]
+        videos: ["../videos/JBL.mp4"]
       },
       {
         title: "One Dijital Dijital Pazarlama Ajansı",
@@ -1934,12 +1934,12 @@
         tags: ["Art Direction", "Brand Identity", "Social Media Content Creation", "Content Design", "Motion Graphics"],
         mockup: "posts-grid",
         media: [
-          "videos/One_Dijital_1.mp4",
-          "videos/One_Dijital_2.mp4",
-          "images/One_Dijital_3.png",
-          "videos/One_Dijital_4.mp4",
-          "images/One_Dijital_5.png",
-          "videos/One_Dijital_6.mp4"
+          "../videos/One_Dijital_1.mp4",
+          "../videos/One_Dijital_2.mp4",
+          "../images/One_Dijital_3.png",
+          "../videos/One_Dijital_4.mp4",
+          "../images/One_Dijital_5.png",
+          "../videos/One_Dijital_6.mp4"
         ]
       },
       {
@@ -1950,7 +1950,7 @@
         link: { url: "https://www.youtube.com/watch?v=iNsXKJlH3sE", label: "YouTube'da Izle" },
         category: "Freelance",
         tags: [],
-        videos: ["videos/kukumav.mp4"],
+        videos: ["../videos/kukumav.mp4"],
         mockup: "tablet"
       },
       {
@@ -1959,7 +1959,7 @@
         desc_en: "Learned Unreal Engine independently out of personal curiosity, developing an understanding of the Blueprint system and 3D environment design. During my internship at Code8bit, I transformed this knowledge into practical work by designing VR-based meeting and presentation experiences for the era of remote collaboration.<br><br>Created virtual environments where teams could gather, present, and interact in real time without the need for a physical office. Contributed to projects developed for global brands such as Bosch, gaining firsthand experience in how VR can be used as a professional communication and presentation tool.",
         category: "Stajyer",
         tags: ["Unreal Engine", "VR", "3D"],
-        videos: ["videos/1.mp4", "videos/2.mp4", "videos/3.mp4", "videos/4.mp4", "videos/5.mp4"],
+        videos: ["../videos/1.mp4", "../videos/2.mp4", "../videos/3.mp4", "../videos/4.mp4", "../videos/5.mp4"],
         mockup: "tablets-quint"
       }
     ];
@@ -2591,11 +2591,11 @@
     }
 
     // Ilk yükleme
-    setLang('tr');
+    setLang('en');
 
     // ── RESUME ────────────────────────────────────────────────────────
     function openResume() {
-      window.open('resume.html', '_blank');
+      window.open('../resume_en.html', '_blank');
     }
 
     // ── FIXED TOOL COLUMNS ───────────────────────────────────────────
