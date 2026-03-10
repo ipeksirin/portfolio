@@ -2693,15 +2693,6 @@
         setTimeout(runLoop, 350);
 
         // Hero section dışına çıkılınca tool columns'ı gizle
-        var heroSection = document.querySelector('.hero');
-        if (heroSection && window.IntersectionObserver) {
-          var obs = new IntersectionObserver(function (entries) {
-            var visible = entries[0].isIntersecting;
-            document.getElementById('tools-col-left').style.opacity  = visible ? '1' : '0';
-            document.getElementById('tools-col-right').style.opacity = visible ? '1' : '0';
-          }, { threshold: 0.05 });
-          obs.observe(heroSection);
-        }
       });
     })();
   </script>
