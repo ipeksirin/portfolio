@@ -1,0 +1,2697 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ipek Şirin — AI Marketing Design Lead</title>
+  <style>
+
+    /* ── FONTS ─────────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Playfair';
+      src: url('../assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Playfair';
+      src: url('../assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+      font-weight: 100 900;
+    }
+
+    /* ── RESET ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── TOKENS ────────────────────────────────────────────────────── */
+    :root {
+      --bg:        #0e0d0b;
+      --bg-alt:    #141210;
+      --cream:     #F2EDE4;
+      --cream-dim: #A89F94;
+      --gold:      #C4A882;
+      --border:    rgba(196, 168, 130, 0.14);
+      --phone-bg:  #0a0a0a;
+      --phone-rim: #2a2826;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ───────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 24px 60px;
+      background: linear-gradient(to bottom, rgba(14,13,11,0.95), transparent);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .nav-name {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-role {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid rgba(196,168,130,0.3);
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(196,168,130,0.1);
+      border-color: var(--gold);
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 140px 40px 80px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196,168,130,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-name {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--cream);
+      margin-bottom: 0;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-role {
+      font-size: clamp(10px, 1.1vw, 12px);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(196, 168, 130, 0.72);
+      margin-top: 48px;
+      margin-bottom: 12px;
+      text-align: center;
+      line-height: 2.2;
+    }
+
+    .hero-bio {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--cream-dim);
+      max-width: 780px;
+      margin: 0 auto 72px;
+    }
+
+    .hero-scroll-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 56px 40px 80px;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SECTION LABEL ─────────────────────────────────────────────── */
+    .section-label {
+      text-align: center;
+      padding: 80px 40px 60px;
+    }
+
+    .section-label h2 {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .section-label p {
+      font-size: 14px;
+      color: var(--cream-dim);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── PROJECTS ───────────────────────────────────────────────────── */
+    .projects {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 60px 80px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project:last-child { border-bottom: none; }
+
+    .project.flip { direction: rtl; }
+    .project.flip > * { direction: ltr; }
+
+    /* — Text — */
+    .project-text { position: relative; }
+
+    .project-index {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 100px;
+      font-weight: 400;
+      line-height: 1;
+      color: rgba(196, 168, 130, 0.07);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .project-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,168,130,0.4);
+      padding: 5px 14px;
+      border-radius: 24px;
+      margin-bottom: 20px;
+      margin-top: 60px;
+    }
+
+    .project-title {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--cream-dim);
+      margin-bottom: 28px;
+      max-width: 380px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--cream-dim);
+      background: rgba(242,237,228,0.06);
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      border-radius: 4px;
+    }
+
+    /* — Phones — */
+    .project-phones {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .phone-wrap {
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Stagger for multiple phones */
+    .project-phones .phone-wrap:nth-child(1) { transform: translateY(0);    z-index: 3; }
+    .project-phones .phone-wrap:nth-child(2) { transform: translateY(-28px); z-index: 2; }
+    .project-phones .phone-wrap:nth-child(3) { transform: translateY(-14px); z-index: 1; }
+
+    .project-phones:hover .phone-wrap:nth-child(2) { transform: translateY(-36px); }
+    .project-phones:hover .phone-wrap:nth-child(3) { transform: translateY(-20px); }
+
+    /* ── PHONE MOCKUP ───────────────────────────────────────────────── */
+    .phone {
+      position: relative;
+      width: 220px;
+      height: 450px;
+      background: var(--phone-bg);
+      border-radius: 46px;
+
+      /* Outer rim */
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        inset 0 0 0 1.5px rgba(255,255,255,0.04),
+        0 40px 90px rgba(0,0,0,0.65),
+        0 0 50px rgba(196,168,130,0.05);
+
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.45s ease;
+    }
+
+    .phone:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        inset 0 0 0 1.5px rgba(255,255,255,0.06),
+        0 60px 120px rgba(0,0,0,0.8),
+        0 0 80px rgba(196,168,130,0.12);
+    }
+
+    /* Dynamic island */
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88px;
+      height: 24px;
+      background: var(--phone-bg);
+      border-radius: 20px;
+      z-index: 10;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    /* Power button */
+    .phone::after {
+      content: '';
+      position: absolute;
+      top: 110px;
+      right: -12px;
+      width: 3px;
+      height: 40px;
+      background: #2c2926;
+      border-radius: 0 3px 3px 0;
+      box-shadow: 0 56px 0 #2c2926, 0 108px 0 #2c2926;
+      z-index: 20;
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 0;
+      border-radius: 44px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .phone-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Play overlay */
+    .phone-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 44px;
+      background: rgba(0,0,0,0.25);
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .phone-overlay svg {
+      width: 44px;
+      height: 44px;
+      opacity: 0.75;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+
+    .phone:hover .phone-overlay,
+    .phone.playing .phone-overlay {
+      opacity: 0;
+    }
+
+    /* ── VIDEO SCRUBBER ─────────────────────────────────────────────── */
+    .video-scrubber {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      z-index: 9;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 12px 10px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      cursor: pointer;
+    }
+
+    .phone:hover .video-scrubber,
+    .phone.playing .video-scrubber,
+    .tablet:hover .video-scrubber,
+    .tablet.playing .video-scrubber,
+    .post-card:hover .video-scrubber,
+    .post-card.playing .video-scrubber {
+      opacity: 1;
+    }
+
+    .scrubber-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .scrubber-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: rgba(255,255,255,0.9);
+      border-radius: 3px;
+      width: 0%;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    .scrubber-thumb {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .phone:hover .scrubber-thumb,
+    .phone.playing .scrubber-thumb,
+    .tablet:hover .scrubber-thumb,
+    .tablet.playing .scrubber-thumb,
+    .post-card:hover .scrubber-thumb,
+    .post-card.playing .scrubber-thumb {
+      opacity: 1;
+    }
+
+    /* ── BUBBLE TAGS ────────────────────────────────────────────────── */
+    .bubble {
+      position: absolute;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      background: rgba(14,13,11,0.82);
+      border: 1px solid rgba(196,168,130,0.28);
+      padding: 6px 13px;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: bubble-float var(--dur, 4s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      z-index: 10;
+    }
+
+    .bubble.metric {
+      color: var(--gold);
+      border-color: rgba(196,168,130,0.45);
+    }
+
+    @keyframes bubble-float {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+      50%       { transform: translateY(-7px) rotate(var(--rot, 0deg)); }
+    }
+
+    /* ── TRIO LAYOUT (3 telefon) ────────────────────────────────────── */
+    .phones-trio {
+      position: relative;
+      width: 480px;
+      height: 530px;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    .phones-trio .phone-wrap {
+      position: absolute;
+      bottom: 0;
+      transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .phones-trio .phone-wrap:nth-child(1) {
+      left: 0;
+      transform: rotate(-9deg) scale(0.83);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+
+    .phones-trio .phone-wrap:nth-child(2) {
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: bottom center;
+      z-index: 3;
+    }
+
+    .phones-trio .phone-wrap:nth-child(3) {
+      right: 0;
+      transform: rotate(9deg) scale(0.83);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+
+    .phones-trio .phone-wrap:nth-child(1) .phone,
+    .phones-trio .phone-wrap:nth-child(3) .phone {
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        0 20px 50px rgba(0,0,0,0.8);
+      filter: brightness(0.65);
+    }
+
+    .phones-trio .phone-wrap:nth-child(1):hover {
+      transform: rotate(-5deg) scale(0.92) translateY(-12px);
+      z-index: 4;
+    }
+
+    .phones-trio .phone-wrap:nth-child(3):hover {
+      transform: rotate(5deg) scale(0.92) translateY(-12px);
+      z-index: 4;
+    }
+
+    .phones-trio .phone-wrap:nth-child(1):hover .phone,
+    .phones-trio .phone-wrap:nth-child(3):hover .phone {
+      filter: brightness(1);
+    }
+
+    @media (max-width: 900px) {
+      .phones-trio { width: 320px; height: 390px; }
+    }
+
+    /* ── TABLET MOCKUP (yatay landscape) ────────────────────────────── */
+    .project-phones.project-tablet {
+      align-items: center;
+    }
+
+    .tablet {
+      position: relative;
+      width: 500px;
+      height: 320px;
+      background: var(--phone-bg);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        inset 0 0 0 1.5px rgba(255,255,255,0.04),
+        0 40px 90px rgba(0,0,0,0.65),
+        0 0 50px rgba(196,168,130,0.05);
+
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.45s ease;
+    }
+
+    .tablet:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        inset 0 0 0 1.5px rgba(255,255,255,0.06),
+        0 60px 120px rgba(0,0,0,0.8),
+        0 0 80px rgba(196,168,130,0.12);
+    }
+
+    /* Front camera — top edge center */
+    .tablet::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: #1a1817;
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    /* Power / volume buttons on right short edge */
+    .tablet::after {
+      content: '';
+      position: absolute;
+      top: 80px;
+      right: -12px;
+      width: 3px;
+      height: 32px;
+      background: #2c2926;
+      border-radius: 0 3px 3px 0;
+      box-shadow: 0 50px 0 #2c2926;
+      z-index: 20;
+    }
+
+    .tablet-screen {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .tablet-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .tablet-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.25);
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .tablet-overlay svg {
+      width: 54px;
+      height: 54px;
+      opacity: 0.75;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+
+    .tablet:hover .tablet-overlay,
+    .tablet.playing .tablet-overlay {
+      opacity: 0;
+    }
+
+    @media (max-width: 900px) {
+      .tablet { width: 320px; height: 205px; border-radius: 14px; }
+      .tablet-screen { border-radius: 12px; }
+      .tablet-overlay { border-radius: 12px; }
+    }
+
+    /* ── TABLET DUO LAYOUT (2 tablet) ───────────────────────────────── */
+    .tablets-duo {
+      position: relative;
+      width: 580px;
+      height: 380px;
+      flex-shrink: 0;
+    }
+
+    .tablets-duo .tablet-wrap {
+      position: absolute;
+      bottom: 0;
+      transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(1) {
+      left: 0;
+      transform: rotate(-7deg) scale(0.84);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(2) {
+      left: 18%;
+      transform: none;
+      transform-origin: bottom center;
+      z-index: 3;
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(1) .tablet {
+      filter: brightness(0.55);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        0 20px 50px rgba(0,0,0,0.8);
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(1):hover {
+      transform: rotate(-2deg) scale(0.93) translateY(-12px);
+      z-index: 4;
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(1):hover .tablet {
+      filter: brightness(1);
+    }
+
+    .tablets-duo .tablet-wrap:nth-child(2):hover {
+      transform: translateY(-12px) scale(1.02);
+      z-index: 4;
+    }
+
+    @media (max-width: 900px) {
+      .tablets-duo { width: 360px; height: 240px; }
+    }
+
+    /* ── TABLET STACK LAYOUT (2 tablet dikey üst üste) ─────────────── */
+    .tablets-stack {
+      position: relative;
+      width: 360px;
+      height: 460px;
+      flex-shrink: 0;
+    }
+
+    .tablets-stack .tablet {
+      width: 340px;
+      height: 213px;
+      border-radius: 14px;
+    }
+
+    .tablets-stack .tablet::before {
+      width: 6px; height: 6px; top: 10px;
+    }
+
+    .tablets-stack .tablet::after {
+      top: 48px; height: 24px; box-shadow: 0 36px 0 #2c2926;
+    }
+
+    .tablets-stack .tablet-screen { border-radius: 12px; }
+    .tablets-stack .tablet-overlay { border-radius: 12px; }
+
+    .tablets-stack .tablet-wrap {
+      position: absolute;
+      left: 50%;
+      transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), filter 0.45s ease;
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(1) {
+      top: 0;
+      transform: translateX(-52%) rotate(-6deg);
+      transform-origin: center center;
+      z-index: 1;
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(1) .tablet {
+      filter: brightness(0.5);
+      box-shadow:
+        0 0 0 8px #171512,
+        0 0 0 9px #2c2926,
+        0 16px 40px rgba(0,0,0,0.8);
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(2) {
+      top: 150px;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(1):hover {
+      transform: translateX(-52%) rotate(-2deg) translateY(-14px);
+      z-index: 4;
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(1):hover .tablet {
+      filter: brightness(1);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        0 40px 80px rgba(0,0,0,0.8),
+        0 0 50px rgba(196,168,130,0.1);
+    }
+
+    .tablets-stack .tablet-wrap:nth-child(2):hover {
+      transform: translateX(-50%) translateY(-10px) scale(1.03);
+    }
+
+    @media (max-width: 900px) {
+      .tablets-stack { width: 280px; height: 340px; }
+      .tablets-stack .tablet { width: 260px; height: 163px; border-radius: 10px; }
+      .tablets-stack .tablet-screen, .tablets-stack .tablet-overlay { border-radius: 8px; }
+      .tablets-stack .tablet-wrap:nth-child(2) { top: 110px; }
+    }
+
+    /* ── TABLET TRIO LAYOUT (3 tablet) ──────────────────────────────── */
+    /* Orta üstte, yanlarda arkada/altta */
+    .tablets-trio {
+      position: relative;
+      width: 480px;
+      height: 380px;
+      flex-shrink: 0;
+    }
+
+    /* Trio içinde tabletler */
+    .tablets-trio .tablet {
+      width: 300px;
+      height: 188px;
+      border-radius: 13px;
+    }
+
+    .tablets-trio .tablet::before {
+      width: 6px;
+      height: 6px;
+      top: 10px;
+    }
+
+    .tablets-trio .tablet::after {
+      top: 52px;
+      height: 26px;
+      box-shadow: 0 38px 0 #2c2926;
+    }
+
+    .tablets-trio .tablet-screen { border-radius: 11px; }
+    .tablets-trio .tablet-overlay { border-radius: 11px; }
+
+    .tablets-trio .tablet-wrap {
+      position: absolute;
+      transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Sol — arkada, biraz yukarıda */
+    .tablets-trio .tablet-wrap:nth-child(1) {
+      left: 0;
+      bottom: 60px;
+      transform: rotate(-6deg) scale(0.93);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+
+    /* Orta — önde, yukarıda */
+    .tablets-trio .tablet-wrap:nth-child(2) {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      transform-origin: top center;
+      z-index: 3;
+    }
+
+    /* Sağ — arkada, biraz yukarıda */
+    .tablets-trio .tablet-wrap:nth-child(3) {
+      right: 0;
+      bottom: 60px;
+      transform: rotate(6deg) scale(0.93);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+
+    .tablets-trio .tablet-wrap:nth-child(1) .tablet,
+    .tablets-trio .tablet-wrap:nth-child(3) .tablet {
+      box-shadow:
+        0 0 0 8px #171512,
+        0 0 0 9px #2c2926,
+        0 16px 40px rgba(0,0,0,0.8);
+      filter: brightness(0.5);
+    }
+
+    .tablets-trio .tablet-wrap:nth-child(1):hover {
+      transform: rotate(-2deg) scale(0.92) translateY(-16px);
+      z-index: 4;
+    }
+
+    .tablets-trio .tablet-wrap:nth-child(3):hover {
+      transform: rotate(2deg) scale(0.92) translateY(-16px);
+      z-index: 4;
+    }
+
+    .tablets-trio .tablet-wrap:nth-child(1):hover .tablet,
+    .tablets-trio .tablet-wrap:nth-child(3):hover .tablet {
+      filter: brightness(1);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        0 40px 80px rgba(0,0,0,0.8),
+        0 0 50px rgba(196,168,130,0.1);
+    }
+
+    .tablets-trio .tablet-wrap:nth-child(2):hover {
+      transform: translateX(-50%) translateY(-14px) scale(1.06);
+    }
+
+    @media (max-width: 900px) {
+      .tablets-trio { width: 320px; height: 260px; }
+      .tablets-trio .tablet { width: 200px; height: 125px; border-radius: 9px; }
+    }
+
+    /* ── TABLET QUINT LAYOUT (5 tablet — 3 üstte 2 altta) ──────────── */
+    .tablets-quint {
+      position: relative;
+      width: 620px;
+      height: 440px;
+      flex-shrink: 0;
+    }
+
+    .tablets-quint .tablet {
+      width: 240px;
+      height: 150px;
+      border-radius: 12px;
+    }
+
+    .tablets-quint .tablet::before {
+      width: 6px; height: 6px; top: 9px;
+    }
+
+    .tablets-quint .tablet::after {
+      top: 44px; height: 22px; box-shadow: 0 32px 0 #2c2926;
+    }
+
+    .tablets-quint .tablet-screen { border-radius: 10px; }
+    .tablets-quint .tablet-overlay { border-radius: 10px; }
+
+    .tablets-quint .tablet-wrap {
+      position: absolute;
+      transition:
+        transform 0.42s cubic-bezier(0.23, 1, 0.32, 1),
+        z-index 0s;
+    }
+
+    /* Üst sol */
+    .tablets-quint .tablet-wrap:nth-child(1) {
+      top: 30px; left: 10px;
+      transform: rotate(-9deg) scale(0.86);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+    .tablets-quint .tablet-wrap:nth-child(1) .tablet {
+      filter: brightness(0.45);
+      box-shadow: 0 0 0 8px #171512, 0 0 0 9px #2c2926, 0 14px 36px rgba(0,0,0,0.8);
+    }
+    .tablets-quint .tablet-wrap:nth-child(1):hover {
+      transform: rotate(0deg) scale(1) translateY(-16px);
+      z-index: 10;
+    }
+
+    /* Üst orta */
+    .tablets-quint .tablet-wrap:nth-child(2) {
+      top: 8px; left: 190px;
+      transform: rotate(-3deg) scale(0.92);
+      transform-origin: bottom center;
+      z-index: 2;
+    }
+    .tablets-quint .tablet-wrap:nth-child(2) .tablet {
+      filter: brightness(0.6);
+      box-shadow: 0 0 0 9px #171512, 0 0 0 10px #2c2926, 0 18px 44px rgba(0,0,0,0.75);
+    }
+    .tablets-quint .tablet-wrap:nth-child(2):hover {
+      transform: rotate(0deg) scale(1) translateY(-16px);
+      z-index: 10;
+    }
+
+    /* Üst sağ */
+    .tablets-quint .tablet-wrap:nth-child(3) {
+      top: 30px; left: 370px;
+      transform: rotate(9deg) scale(0.86);
+      transform-origin: bottom center;
+      z-index: 1;
+    }
+    .tablets-quint .tablet-wrap:nth-child(3) .tablet {
+      filter: brightness(0.45);
+      box-shadow: 0 0 0 8px #171512, 0 0 0 9px #2c2926, 0 14px 36px rgba(0,0,0,0.8);
+    }
+    .tablets-quint .tablet-wrap:nth-child(3):hover {
+      transform: rotate(0deg) scale(1) translateY(-16px);
+      z-index: 10;
+    }
+
+    /* Alt sol */
+    .tablets-quint .tablet-wrap:nth-child(4) {
+      top: 240px; left: 95px;
+      transform: rotate(-5deg) scale(0.91);
+      transform-origin: top center;
+      z-index: 2;
+    }
+    .tablets-quint .tablet-wrap:nth-child(4) .tablet {
+      filter: brightness(0.55);
+      box-shadow: 0 0 0 9px #171512, 0 0 0 10px #2c2926, 0 18px 44px rgba(0,0,0,0.75);
+    }
+    .tablets-quint .tablet-wrap:nth-child(4):hover {
+      transform: rotate(0deg) scale(1) translateY(-14px);
+      z-index: 10;
+    }
+
+    /* Alt sağ */
+    .tablets-quint .tablet-wrap:nth-child(5) {
+      top: 240px; left: 285px;
+      transform: rotate(5deg) scale(0.91);
+      transform-origin: top center;
+      z-index: 2;
+    }
+    .tablets-quint .tablet-wrap:nth-child(5) .tablet {
+      filter: brightness(0.55);
+      box-shadow: 0 0 0 9px #171512, 0 0 0 10px #2c2926, 0 18px 44px rgba(0,0,0,0.75);
+    }
+    .tablets-quint .tablet-wrap:nth-child(5):hover {
+      transform: rotate(0deg) scale(1) translateY(-14px);
+      z-index: 10;
+    }
+
+    /* Hover'da tüm tablet-wrap'lar full brightness */
+    .tablets-quint .tablet-wrap:hover .tablet {
+      filter: brightness(1);
+      box-shadow:
+        0 0 0 10px #171512,
+        0 0 0 11px #2c2926,
+        0 40px 80px rgba(0,0,0,0.8),
+        0 0 50px rgba(196,168,130,0.12);
+    }
+
+    @media (max-width: 900px) {
+      .tablets-quint { width: 360px; height: 270px; }
+      .tablets-quint .tablet { width: 148px; height: 93px; border-radius: 8px; }
+      .tablets-quint .tablet-screen, .tablets-quint .tablet-overlay { border-radius: 6px; }
+      .tablets-quint .tablet-wrap:nth-child(1) { top: 18px; left: 6px; }
+      .tablets-quint .tablet-wrap:nth-child(2) { top: 5px; left: 116px; }
+      .tablets-quint .tablet-wrap:nth-child(3) { top: 18px; left: 226px; }
+      .tablets-quint .tablet-wrap:nth-child(4) { top: 148px; left: 58px; }
+      .tablets-quint .tablet-wrap:nth-child(5) { top: 148px; left: 174px; }
+    }
+
+    /* ── POSTS GRID (1080×1080 — iskambil kartı düzeni) ──────────────── */
+    .project-phones.posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%;
+      max-width: 500px;
+      padding: 20px 0;
+      align-self: center;
+    }
+
+    /* Post card — Instagram frame */
+    .post-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #1c1b1a;
+      display: flex;
+      flex-direction: column;
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.06);
+      transition:
+        transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+        box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .posts-grid .post-card:nth-child(1) { transform: rotate(-2.5deg) translateY(6px);  z-index: 1; }
+    .posts-grid .post-card:nth-child(2) { transform: rotate(1.2deg)  translateY(-10px); z-index: 2; }
+    .posts-grid .post-card:nth-child(3) { transform: rotate(-1.8deg) translateY(4px);  z-index: 1; }
+    .posts-grid .post-card:nth-child(4) { transform: rotate(2deg)    translateY(8px);  z-index: 1; }
+    .posts-grid .post-card:nth-child(5) { transform: rotate(-1.2deg) translateY(-6px); z-index: 2; }
+    .posts-grid .post-card:nth-child(6) { transform: rotate(1.8deg)  translateY(4px);  z-index: 1; }
+
+    .posts-grid .post-card:hover {
+      transform: rotate(0deg) scale(1.07) !important;
+      box-shadow:
+        0 20px 56px rgba(0,0,0,0.8),
+        0 0 0 1px rgba(196,168,130,0.3);
+      z-index: 10;
+    }
+
+    /* Instagram header */
+    .insta-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      background: #1c1b1a;
+      flex-shrink: 0;
+    }
+
+    .insta-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: conic-gradient(#f09433, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+      padding: 1.5px;
+      flex-shrink: 0;
+    }
+
+    .insta-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1c1b1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      color: rgba(255al,255,255,0.7);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .insta-username {
+      font-size: 7.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      flex: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .insta-more {
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+
+    /* Media area — 1:1 */
+    .insta-media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    .insta-media img,
+    .insta-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .insta-media video { pointer-events: none; }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.2s ease;
+      z-index: 4;
+    }
+
+    .post-overlay svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    }
+
+    .post-card:not(.playing):hover .post-overlay { background: rgba(0,0,0,0.15); }
+    .post-card:not(.playing):hover .post-overlay svg { opacity: 1; }
+
+    /* Instagram footer */
+    .insta-footer {
+      padding: 6px 8px 5px;
+      background: #1c1b1a;
+      flex-shrink: 0;
+    }
+
+    .insta-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .insta-icon {
+      width: 13px;
+      height: 13px;
+      color: rgba(255,255,255,0.75);
+      flex-shrink: 0;
+    }
+
+    .insta-bookmark { margin-left: auto; }
+
+    .insta-likes {
+      font-size: 7px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 900px) {
+      .posts-grid { max-width: 320px; gap: 6px; padding: 12px 0; }
+      .insta-header { padding: 5px 6px; }
+      .insta-avatar { width: 16px; height: 16px; }
+      .insta-username { font-size: 6px; }
+      .insta-footer { padding: 4px 6px 4px; }
+      .insta-icon { width: 10px; height: 10px; }
+    }
+
+    /* ── SKILLS (inside hero) ────────────────────────────────────────── */
+    .skills-section-label {
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 56px;
+    }
+
+    .skills-categories {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .skill-category {
+      padding: 0;
+    }
+
+    .skill-category-title {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-item {
+      font-size: 12px;
+      color: var(--cream-dim);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(196,168,130,0.05);
+      line-height: 1.4;
+    }
+
+    .skill-item:last-child { border-bottom: none; }
+
+    /* Tools */
+    .tools-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tools-title {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 60px;
+    }
+
+    /* Ilk satır (AI araçları) tam genişlik */
+    .tools-grid .tool-row:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .tool-row {
+      padding: 12px 0;
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(196,168,130,0.07);
+    }
+
+    .tool-row-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+      min-width: 160px;
+    }
+
+    .tool-row-list {
+      font-size: 12px;
+      color: var(--cream-dim);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 120px 28px 60px; }
+      .skills-categories { grid-template-columns: 1fr 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .tool-row { flex-direction: column; gap: 8px; }
+      .tool-row-label { min-width: unset; }
+    }
+
+    @media (max-width: 600px) {
+      .skills-categories { grid-template-columns: 1fr; }
+    }
+
+    /* ── CONTACT ────────────────────────────────────────────────────── */
+    .contact {
+      text-align: center;
+      padding: 120px 40px;
+    }
+
+    .contact-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    .contact h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      padding: 14px 36px;
+      border: 1px solid rgba(196,168,130,0.3);
+      border-radius: 4px;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(196,168,130,0.08);
+      border-color: var(--gold);
+    }
+
+    .contact-link.primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0e0d0b;
+    }
+
+    .contact-link.primary:hover {
+      background: #d4b892;
+      border-color: #d4b892;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--cream-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── MINDIARY FEATURED ───────────────────────────────────────────── */
+    .mindiary-section {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 120px 60px;
+    }
+
+    .mindiary-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .mindiary-eyebrow {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .mindiary-title {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+
+    .mindiary-title em { font-style: italic; color: var(--gold); }
+
+    .mindiary-desc {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--cream-dim);
+      margin-bottom: 24px;
+      max-width: 460px;
+    }
+
+    .mindiary-note {
+      background: rgba(196,168,130,0.06);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    .mindiary-note p { font-size: 13px; line-height: 1.75; color: var(--cream-dim); }
+    .mindiary-note strong { color: var(--cream); }
+
+    .mindiary-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .mindiary-screens { position: relative; height: 500px; }
+
+    .screen-browser {
+      background: #1e1c19;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+      position: absolute;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+                  box-shadow 0.35s ease,
+                  filter 0.35s ease,
+                  z-index 0s;
+    }
+
+    .screen-browser:hover {
+      transform: scale(1.05) translateY(-6px);
+      box-shadow: 0 50px 120px rgba(0,0,0,0.75), 0 0 60px rgba(196,168,130,0.1);
+      filter: brightness(1) !important;
+      z-index: 10 !important;
+    }
+
+    .screen-bar {
+      background: #2a2824;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .browser-dots { display: flex; gap: 5px; }
+
+    .browser-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .browser-url {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      height: 18px;
+      margin-left: 10px;
+    }
+
+    .screen-browser img { width: 100%; display: block; object-fit: cover; }
+
+    .screen-placeholder {
+      width: 100%;
+      min-height: 200px;
+      background: linear-gradient(135deg, rgba(196,168,130,0.06), rgba(196,168,130,0.02));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(196,168,130,0.25);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Ana ekran — üstte ortalı */
+    .screen-main {
+      width: 80%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+    .screen-main:hover {
+      transform: translateX(-50%) scale(1.05) translateY(-6px);
+    }
+
+    /* Sol alt */
+    .screen-secondary {
+      width: 58%;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      filter: brightness(0.78);
+    }
+
+    /* Sağ alt */
+    .screen-tertiary {
+      width: 58%;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      filter: brightness(0.78);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 28px; }
+      .mindiary-section { padding: 80px 28px; }
+      .mindiary-inner { grid-template-columns: 1fr; gap: 48px; }
+      .mindiary-screens { height: 360px; }
+      .projects { padding: 0 28px 60px; }
+
+      .project,
+      .project.flip {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 48px;
+        padding: 72px 0;
+      }
+
+      .project-phones { width: 100%; }
+
+      .phone { width: 170px; height: 348px; }
+
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ── RESUME BUTTON ──────────────────────────────────────────────── */
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 9px 20px;
+      background: transparent;
+      border: 1px solid rgba(196,168,130,0.45);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .resume-btn:hover {
+      background: rgba(196,168,130,0.1);
+      border-color: var(--gold);
+      color: var(--cream);
+    }
+
+    .resume-btn svg {
+      width: 13px;
+      height: 13px;
+      opacity: 0.7;
+    }
+
+    /* ── FIXED TOOL COLUMNS ─────────────────────────────────────────── */
+    .tools-col {
+      position: fixed;
+      z-index: 50;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .tools-col-left  { left: 60px; }
+    .tools-col-right { right: 60px; text-align: right; }
+    .tools-col-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(196, 168, 130, 0.65);
+      white-space: nowrap;
+      line-height: 1.85;
+      min-height: 1.85em;
+      transition: color 0.05s;
+    }
+    .tools-col-item.glitch {
+      color: #ffffff;
+    }
+    .tools-col-item.typed {
+      color: rgba(196, 168, 130, 0.42);
+    }
+    .tools-col-item.typing::after {
+      content: '|';
+      display: inline-block;
+      color: #ffffff;
+      animation: col-cursor-blink 0.4s step-end infinite;
+      margin-left: 1px;
+    }
+    @keyframes col-cursor-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    @media (max-width: 1200px) {
+      .tools-col { display: none; }
+    }
+
+  </style>
+</head>
+<body lang="en">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <a href="#" class="nav-name" id="nav-name-el">İpek Şirin</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-role" lang="en" data-i18n="nav.role">AI Marketing Design Lead</span>
+      <button class="lang-toggle" lang="en" id="lang-btn" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-name"><span id="hero-firstname">İpek</span> <em id="hero-lastname">Şirin</em></h1>
+    <p class="hero-role" lang="en">
+      <span data-i18n="hero.role.line1">Marketing Design Lead · Art Direction · Motion Graphics · Storytelling</span><br>
+      <span data-i18n="hero.role.line2">AI-Driven Creative · Content Strategy</span>
+    </p>
+    <div style="display:flex; justify-content:center; margin: 2px 0 28px;">
+      <button class="resume-btn" lang="en" onclick="openResume()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span id="resume-btn-label">CV</span>
+      </button>
+    </div>
+    <p class="hero-bio" data-i18n="hero.bio">Yapay zeka araçlarını yaratıcı içerik üretimiyle birleştiren bir tasarım ve strateji lideriyim. Mobil uygulamalar ve dijital ürünler için performans odaklı reklam kreatifleri, motion tasarımlar ve kısa video senaryoları üretiyorum. Yapay zekayı konsept geliştirme, varyasyon üretimi ve üretim süreçlerini hızlandırmak için aktif olarak kullanıyorum. Şu anda odağım; yapay zeka destekli kreatif sistemler, otomasyon odaklı iş akışları ve ölçeklenebilir içerik üretimi.</p>
+  </section>
+
+  <!-- PROJELERI KESFET -->
+  <div class="hero-scroll-wrapper">
+    <div class="hero-scroll" data-i18n="hero.scroll">PROJELERİ KEŞFET</div>
+  </div>
+
+  <!-- MINDIARY FEATURED -->
+  <section class="mindiary-section">
+    <div class="mindiary-inner">
+
+      <div class="mindiary-text">
+        <span class="mindiary-eyebrow" data-i18n="mindiary.eyebrow">KİŞİSEL PROJE · 2026</span>
+        <h2 class="mindiary-title">Mindiary<br><em>Content Engine</em></h2>
+        <p class="mindiary-desc" id="mindiary-desc">
+          Mindiary, tarafımdan geliştirilen zihinsel farkındalık ve kişisel gelişim alanında bir içerik markası.
+          Marka için sıfırdan bir AI içerik motoru geliştirdim — içerik stratejisi üretiminden
+          carousel tasarımına, rakip analizinden sosyal medya yönetimine kadar tüm süreci
+          tek bir akışta birleştiren bir sistem.
+        </p>
+        <div class="mindiary-note" id="mindiary-note">
+          <p>
+            <strong>Claude Code'u kendi kendime öğreniyorum.</strong> Bu sistemi şu an
+            herhangi bir şirkette çalışmadan, tamamen bireysel olarak geliştirdim.
+            Yapay zeka araçlarını yaratıcı iş akışlarına entegre etme konusundaki
+            merakım beni bu alana taşıdı — bu portfolyo da o öğrenme sürecinin somut bir çıktısı.
+          </p>
+        </div>
+        <div class="mindiary-tech">
+          <span class="tag">Claude API</span>
+          <span class="tag">Python · Streamlit</span>
+          <span class="tag">AI Content Strategy</span>
+          <span class="tag">Claude Code</span>
+        </div>
+      </div>
+
+      <div class="mindiary-screens">
+        <div class="screen-browser screen-main">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/screen1.png" alt="Claude Code Content Engine"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshot ekle → screenshots/screen1.png</div>'">
+        </div>
+        <div class="screen-browser screen-secondary">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/screen2.png" alt="Claude Code Content Engine"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/screen2.png</div>'">
+        </div>
+        <div class="screen-browser screen-tertiary">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/screen3.png" alt="Claude Code Content Engine"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/screen3.png</div>'">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- PROJECTS — JS tarafından doldurulur -->
+  <main class="projects" id="projects-container"></main>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <p class="contact-eyebrow" data-i18n="contact.eyebrow">Birlikte çalışalım</p>
+    <h2 id="contact-title">Yeni fırsatlara açığım.<br><em>Tanışalım.</em></h2>
+    <div class="contact-links" id="contact-links"></div>
+  </section>
+
+  <!-- FIXED TOOL COLUMNS -->
+  <div class="tools-col tools-col-left"  id="tools-col-left"></div>
+  <div class="tools-col tools-col-right" id="tools-col-right"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span id="footer-name">İpek Şirin</span> · AI Marketing Design Lead</p>
+    <p id="footer-year"></p>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════
+    //
+    //  ✏️  BURADAN EDIT ET
+    //
+    // ═══════════════════════════════════════════════════════════════════
+
+    // — Projeler —
+    // Her proje için:
+    //   title    : Proje başlığı
+    //   desc     : Kısa açıklama (1-2 cümle)
+    //   category : Sağ üstteki etiket  (ör: "Reel", "Carousel", "Story")
+    //   tags     : Alt etiketler (dizi)
+    //   videos   : Video dosya yolları (videos/ klasörüne koy)
+    //              Tek video  → ["videos/proje1.mp4"]
+    //              Çoklu      → ["videos/v1.mp4", "videos/v2.mp4"]
+
+    const PROJECTS = [
+      {
+        title: "kitUP",
+        desc_tr: "Ouro Media'da Marketing Designer olarak başladığım yolculuk, kısa sürede Marketing Design Lead rolüne evrildi. Güçlü hikâye anlatımı, kullanıcı psikolojisini temel alan hook yapıları ve performans odaklı kreatif stratejilerle; UGC videolar, motion graphics ve kısa form reklam içerikleri tasarladım. Ürettiğim kreatiflerde temel odak, ilk saniyede dikkat çeken anlatı kurgusu ve duygusal bağ kuran senaryolar oluşturmaktı.",
+        desc_en: "I started my journey at Ouro Media as a Marketing Designer, which soon evolved into a Marketing Design Lead role. By focusing on strong storytelling, hook structures based on user psychology, and performance-driven creative strategies, I designed UGC videos, motion graphics, and short-form advertising content. The core focus of my work was building narratives that capture attention in the first seconds and creating scenarios that establish an emotional connection with the audience.",
+        category: "MARKETING DESIGN LEAD",
+        tags: ["Marketing Design Lead", "Marketing Performance", "UGC", "Storytelling", "Motion Graphics"],
+        videos: ["videos/kitup.mp4", "videos/adam_kitup.mp4", "videos/kitup_4.mp4"],
+        bubbles: [
+          { text: "STORYTELLING",      metric: false, style: "top: -40px; left: 20px;   --rot: -2deg; --dur: 5s;   --delay: 0.3s"  },
+          { text: "PROMPT ENGINEERING",metric: false, style: "top: -40px; right: 15px;  --rot:  3deg; --dur: 4.8s; --delay: 1s"   },
+          { text: "FUNNEL",            metric: false, style: "top: -5px;  left: 55px;   --rot:  1deg; --dur: 3.6s; --delay: 1.2s"  },
+          { text: "CTR",               metric: true,  style: "top: -5px;  left: 215px;  --rot: -1deg; --dur: 3.8s; --delay: 0.4s"  },
+          { text: "HOOK",              metric: false, style: "top: -5px;  right: 55px;  --rot: -3deg; --dur: 4.6s; --delay: 0.8s"  },
+          { text: "ROAS",              metric: true,  style: "top: 110px; left: -90px;  --rot: -4deg; --dur: 4.2s; --delay: 0s"    },
+          { text: "FOREPLAY",          metric: false, style: "top: 200px; left: -110px; --rot:  3deg; --dur: 4.4s; --delay: 1.6s"  },
+          { text: "AUTOMATION",        metric: true,  style: "top: 110px; right: -120px;--rot:  4deg; --dur: 3.9s; --delay: 1.4s" },
+          { text: "CREATIVE FATIGUE",  metric: false, style: "top: 195px; right: -140px;--rot: -2deg; --dur: 4s;   --delay: 0.6s"  }
+        ]
+      },
+      {
+        title: "Mindguru",
+        desc_tr: "Mindguru, kullanıcıların daha iyi alışkanlıklar geliştirmesine yardımcı olmayı amaçlayan bir alışkanlık ve kişisel gelişim uygulamasıdır. Bu ürün için, hikâye anlatımı ve kullanıcı psikolojisine dayanan hook yapıları kullanarak performans odaklı reklam kreatifleri ürettim.\n\nÇalışmalarım; UGC tarzı videolar, motion grafikler ve kısa form reklam konseptlerini kapsıyordu. Üretilen içeriklerde temel amaç, ilk saniyede dikkat çekmek ve kendini geliştirmek isteyen kullanıcılarla duygusal bir bağ kurabilen anlatılar oluşturmaktı.",
+        desc_en: "Mindguru is a habit-building and personal growth app focused on helping users build better routines. For the product, I created performance-driven ad creatives using storytelling and psychology-based hook structures.\n\nMy work included UGC-style videos, motion graphics, and short-form advertising concepts designed to capture attention instantly and resonate with audiences interested in self-development.",
+        category: "MARKETING DESIGN LEAD",
+        tags: ["Marketing Design Lead", "Marketing Performance", "UGC", "Storytelling", "Motion Graphics"],
+        videos: ["videos/ornek2a.mp4", "videos/animasyon.mp4", "videos/300_pages_2.mp4"]
+      },
+      {
+        title: "Türkiye Petrolleri",
+        desc_tr: "One Dijital Ajans'ta Art Director olarak yürüttüğüm bu projede, Türkiye Petrolleri için hazırlanan kurumsal tanıtım videosunun yaratıcı sürecini baştan sona yönettim.<br><br>Hikâye kurgusu ve storyboard ile başlayan süreçte; grafik tasarımlar ve motion kurgusu oluşturuldu. Video tasarımları Photoshop, animasyon ve motion çalışmaları After Effects kullanılarak üretildi.",
+        desc_en: "As an Art Director at One Digital Agency, I led the creative production of a corporate promotional video for Turkish Petroleum from concept to final delivery.<br><br>The process began with story development and storyboard design, followed by the creation of graphic assets and motion structure. Visual elements were designed in Photoshop, while animation and motion work were produced using After Effects.",
+        category: "ART DIRECTOR",
+        tags: ["Content Creation", "Motion Graphics", "Storyboard", "Illustration"],
+        videos: ["videos/TP.mp4", "videos/TP_1.mp4", "videos/TP_2.mp4"],
+        mockup: "tablet"
+      },
+      {
+        title: "Lotus — Fevkinde Kreatif Ajansı",
+        desc_tr: "Fevkinde Kreatif Ajansı bünyesinde Lotus, Batiste ve Hepsiburada gibi köklü markalara aylık sosyal medya içerikleri ürettim; motion ve statik formatları bir arada yönettim.<br><br>Kampanya konseptleri geliştirdim, her markanın tonuna ve hedef kitlesine uygun görsel yönler belirledim. Farklı platformlara özel sosyal medya görselleri, kısa form motion içerikler ve dijital materyaller tasarladım. Kurumsal kimlik projelerinde görsel rehberler ve marka materyalleri hazırladım; fikirleri ve kampanya yönlerini müşteriye aktaran sunumlar oluşturdum.",
+        desc_en: "Produced monthly social media content for brands such as Lotus, Batiste, and Hepsiburada within Fevkinde Digital & Creative Agency, managing both motion and static formats.<br><br>Developed campaign concepts and visual directions aligned with each brand's tone and audience. Designed platform-specific social media assets, short-form motion content, and digital materials.<br><br>Also contributed to corporate identity projects by preparing visual guidelines, brand assets, and client presentations communicating creative concepts and campaign directions.",
+        category: "ART DIRECTOR",
+        tags: ["Social Media Content Plan", "Content Creation", "Motion Graphics"],
+        videos: ["videos/Lotus_1.mov", "videos/Lotus_2.mov", "videos/Lotus_3.mov"]
+      },
+      {
+        title: "Batiste — Fevkinde Kreatif Ajansı",
+        desc_tr: "Fevkinde Kreatif Ajansı bünyesinde Batiste için aylık sosyal medya içerik üretimini yürüttüm. Markanın tonunu ve hedef kitlesini merkeze alarak görsel yönler belirledim; motion ve statik formatları bir arada yöneterek farklı platformlara özel kampanya kreatifleri tasarladım.<br><br>Konsept ideasyonundan üretim sürecine kadar her aşamada aktif rol üstlendim; marka kimliğiyle tutarlı animasyonlar, sosyal medya görselleri ve dijital materyaller geliştirdim.",
+        desc_en: "Managed monthly social media content production for Batiste, defining visual directions aligned with the brand's tone and target audience. Designed platform-specific campaign creatives across both motion and static formats.<br><br>Contributed to the full creative process from concept ideation to final production, developing animations, social media visuals, and digital assets consistent with the brand's visual identity.",
+        category: "ART DIRECTOR",
+        tags: ["Social Media Content Plan", "Content Creation", "Motion Graphics"],
+        videos: ["videos/Batiste_1.mp4", "videos/Batiste_2.mp4", "videos/Btiste_3.mp4"]
+      },
+      {
+        title: "Aztek Teknoloji",
+        title_en: "Aztek Technology",
+        desc_tr: "Teknik bir markanın dilini görsel anlatıya dönüştürmek — bu projenin asıl çıkış noktasıydı. İçerik planlaması ve tasarım süreçlerinde eş zamanlı rol aldım; neyin ne zaman söyleneceğini belirlerken aynı anda nasıl görüneceğini de şekillendirdim.<br><br>Platform ritmine uyan, marka kimliğiyle konuşan ve hedef kitleyle gerçek bir temas kuran bir içerik akışı kurdum.",
+        desc_en: "Translated the language of a technical brand into a clear visual narrative for Aztek Teknoloji. Contributed to both content planning and design processes, shaping not only what should be communicated but also how it should visually appear.<br><br>Built a content flow aligned with platform dynamics, the brand's visual identity, and the expectations of its target audience, creating a communication style that establishes a genuine connection with viewers.",
+        category: "ART DIRECTOR",
+        tags: ["Content Creation", "Motion Graphics", "Storyboard", "Illustration", "Social Media"],
+        mockup: "tablet",
+        videos: ["videos/JBL.mp4"]
+      },
+      {
+        title: "One Dijital Dijital Pazarlama Ajansı",
+        title_en: "One Digital Marketing & Advertising Agency",
+        desc_tr: "One Dijital Ajans'ta Art Director olarak birbirinden farklı sektörlerdeki markalara sosyal medya içerikleri, kampanya görselleri ve marka kimliği çalışmaları ürettim.<br><br>Her projede müşteriyle doğrudan iletişime geçerek ihtiyacı yerinde anladım; marka sesini, hedef kitleyi ve platformun dinamiklerini bir araya getiren görsel sistemler tasarladım. Post tasarımından reklam kreatiflere, kurumsal sunum materyallerinden video içeriklere uzanan geniş bir üretim yelpazesinde çalıştım.",
+        desc_en: "As an Art Director at One Digital Creative & Marketing Agency, I produced social media content, campaign visuals, and brand identity work for clients across a wide range of industries.<br><br>On each project, I engaged directly with the client to understand their needs firsthand, then designed visual systems that brought together the brand voice, target audience, and platform dynamics. My work spanned a broad production range — from post design and ad creatives to corporate presentation materials and video content.",
+        category: "ART DIRECTOR",
+        tags: ["Art Direction", "Brand Identity", "Social Media Content Creation", "Content Design", "Motion Graphics"],
+        mockup: "posts-grid",
+        media: [
+          "videos/One_Dijital_1.mp4",
+          "videos/One_Dijital_2.mp4",
+          "images/One_Dijital_3.png",
+          "videos/One_Dijital_4.mp4",
+          "images/One_Dijital_5.png",
+          "videos/One_Dijital_6.mp4"
+        ]
+      },
+      {
+        title: "Kukumav Kuşları — Müzik Klibi",
+        title_en: "Kukumav Kuşları — Official Music Video",
+        desc: "Kukumav Kuşları'nın resmi müzik videosu için After Effects'te tipografi animasyonları tasarladım. Müziğin enerjisini ekrana taşımak, her sahneyi ritimle buluşturmak bu projenin özüydü — renkli ve dinamik bir görsel dil ortaya çıktı.",
+        desc_en: "Designed typographic animations in After Effects for the official music video of Kukumav Kuşları. The core of the project was translating the energy of the music onto the screen and aligning each visual moment with the rhythm of the track.<br><br>The result was a colorful and dynamic visual language that moved in sync with the music.",
+        link: { url: "https://www.youtube.com/watch?v=iNsXKJlH3sE", label: "YouTube'da Izle" },
+        category: "Freelance",
+        tags: [],
+        videos: ["videos/kukumav.mp4"],
+        mockup: "tablet"
+      },
+      {
+        title: "code8bit — VR\u00A0Technologies",
+        desc_tr: "Kişisel merakımla Unreal Engine'i sıfırdan öğrendim; Blueprint sistemini ve 3D ortam tasarımını kavrayarak kendi kendime ilerledim. Code8bit stajı sürecinde bu birikimi pratiğe döktüm: uzaktan çalışma çağı için VR tabanlı toplantı ve sunum deneyimleri tasarladım.<br><br>Fiziksel bir ofis olmadan ekiplerin aynı sanal alanda bir araya gelebileceği, sunumları gerçek zamanlı olarak deneyimleyebileceği ortamlar kurguladım. Bosch gibi küresel markalar için geliştirilen projelerde aktif rol alarak VR'ın profesyonel bir iletişim ve sunum aracı olarak nasıl kullanılabileceğini bizzat deneyimledim.",
+        desc_en: "Learned Unreal Engine independently out of personal curiosity, developing an understanding of the Blueprint system and 3D environment design. During my internship at Code8bit, I transformed this knowledge into practical work by designing VR-based meeting and presentation experiences for the era of remote collaboration.<br><br>Created virtual environments where teams could gather, present, and interact in real time without the need for a physical office. Contributed to projects developed for global brands such as Bosch, gaining firsthand experience in how VR can be used as a professional communication and presentation tool.",
+        category: "Stajyer",
+        tags: ["Unreal Engine", "VR", "3D"],
+        videos: ["videos/1.mp4", "videos/2.mp4", "videos/3.mp4", "videos/4.mp4", "videos/5.mp4"],
+        mockup: "tablets-quint"
+      }
+    ];
+
+    // ═══════════════════════════════════════════════════════════════════
+    //  DIL VERILERI — Değiştirme (otomatik çeviri)
+    // ═══════════════════════════════════════════════════════════════════
+
+    const I18N = {
+      tr: {
+        'name':            'İpek Şirin',
+        'nav.role':        'AI Marketing Design Lead',
+        'hero.eyebrow':    'Portfolyo · 2024–2025',
+        'hero.role.line1': 'Marketing Design Lead · Art Direction · Motion Graphics · Storytelling',
+        'hero.role.line2': 'AI-Driven Creative · Content Strategy',
+        'hero.bio':        'Yapay zeka araçlarını yaratıcı içerik üretimiyle birleştiren bir tasarım ve strateji lideriyim.\nMobil uygulamalar ve dijital ürünler için performans odaklı reklam kreatifleri, motion tasarımlar ve kısa video senaryoları üretiyorum.\nYapay zekayı konsept geliştirme, varyasyon üretimi ve üretim süreçlerini hızlandırmak için aktif olarak kullanıyorum.\nŞu anda odağım; yapay zeka destekli kreatif sistemler,\notomasyon odaklı iş akışları ve ölçeklenebilir içerik üretimi.',
+        'hero.scroll':     'PROJELERİ KEŞFET',
+        'mindiary.eyebrow':'KİŞİSEL PROJE · 2026',
+        'mindiary.desc':   'Mindiary, tarafımdan geliştirilen zihinsel farkındalık ve kişisel gelişim alanında bir içerik markası. Marka için sıfırdan bir AI içerik motoru geliştirdim — içerik stratejisi üretiminden carousel tasarımına, rakip analizinden sosyal medya yönetimine kadar tüm süreci tek bir akışta birleştiren bir sistem.',
+        'mindiary.note':   '<p><strong>Claude Code\'u kendi kendime öğreniyorum.</strong> Bu sistemi şu an herhangi bir şirkette çalışmadan, tamamen bireysel olarak geliştirdim. Yapay zeka araçlarını yaratıcı iş akışlarına entegre etme konusundaki merakım beni bu alana taşıdı — bu portfolyo da o öğrenme sürecinin somut bir çıktısı.</p>',
+        'section.title':   'Seçki',
+        'section.sub':     'Marka ve performans projelerinden bir derleme.',
+        'skills.label':    'Uzmanlık Alanları',
+        'tools.label':     'Araçlar',
+        'contact.eyebrow': 'BİRLİKTE ÇALIŞALIM',
+        'contact.title':   'Yeni fırsatlara açığım.',
+        'contact.em':      'Tanışalım.',
+        'footer.rights':   'Tüm hakları saklıdır.',
+        'lang.btn':        'EN',
+        'contact.email':   'E-posta Gönder',
+        'contact.linkedin':'LinkedIn',
+        'resume.btn':      'CV',
+      },
+      en: {
+        'name':            'Ipek Sirin',
+        'nav.role':        'AI Marketing Design Lead',
+        'hero.eyebrow':    'Portfolio · 2024–2025',
+        'hero.role.line1': 'Marketing Design Lead · Art Direction · Motion Graphics · Storytelling',
+        'hero.role.line2': 'AI-Driven Creative · Content Strategy',
+        'hero.bio':        "I'm a design and strategy lead who combines AI tools with creative content production. I create performance-driven ad creatives, motion design, and short-form video concepts for mobile apps and digital products. I actively use AI for concept development, creative variation generation, and accelerating production workflows. My current focus is on building AI-assisted creative systems, automation-driven workflows, and scalable content production.",
+        'hero.scroll':     'EXPLORE WORK',
+        'mindiary.eyebrow':'Personal Project · 2026',
+        'mindiary.desc':   'Mindiary is a content brand in the field of mental awareness and personal growth. I built an AI content engine from scratch — a system that combines content strategy, carousel production, competitive analysis, and social media management in a single workflow.',
+        'mindiary.note':   "<p><strong>I'm learning Claude Code on my own.</strong> I built this system while being independently self-employed, without working at any company. My curiosity about integrating AI tools into creative workflows brought me here — this portfolio is a tangible output of that learning journey.</p>",
+        'section.title':   'Selected Work',
+        'section.sub':     'A collection of brand and performance projects.',
+        'skills.label':    'Expertise',
+        'tools.label':     'Tools',
+        'contact.eyebrow': "Let's collaborate",
+        'contact.title':   'Open to new opportunities.',
+        'contact.em':      "Let's get in touch.",
+        'footer.rights':   'All rights reserved.',
+        'lang.btn':        'TR',
+        'contact.email':   'Send Email',
+        'contact.linkedin':'LinkedIn',
+        'resume.btn':      'Resume',
+      }
+    };
+
+    // — Beceri kategorileri —
+    const SKILLS_DATA = {
+      tr: [
+        {
+          title: 'Yaratıcı Strateji',
+          items: ['Performans Odaklı Kreatif Geliştirme', 'Hook & Hikâye Anlatımı Tasarımı', 'UGC Reklam Konsepti', 'Instagram / Kısa Form Video Stratejisi', 'Marka Sesi Geliştirme']
+        },
+        {
+          title: 'Içerik & Görsel Üretim',
+          items: ['Video & Reel Prodüksiyonu', 'Motion Graphics', 'Carousel Tasarımı', 'Kısa Form Reklam Kreatifleri', 'Sosyal Medya Görsel Sistemleri']
+        },
+        {
+          title: 'AI ile Yaratıcılık',
+          items: ['AI ile Içerik Üretimi', 'AI ile Yaratıcı Ideation', 'Midjourney', 'GPT-4 / Claude', 'AI Destekli Görsel Iş Akışları']
+        },
+        {
+          title: 'Büyüme & Optimizasyon',
+          items: ['Kreatiflerde A/B Testi', 'Kreatif Performans Analizi', 'Içerik DNA Modelleme', 'Sosyal Medya Analitiği', 'Yaratıcı Trend Araştırması']
+        }
+      ],
+      en: [
+        {
+          title: 'Creative Strategy',
+          items: ['Performance Creative Development', 'Hook & Storytelling Design', 'UGC Ad Concepts', 'Instagram / Short-Form Video Strategy', 'Brand Voice Development']
+        },
+        {
+          title: 'Content & Visual Production',
+          items: ['Video & Reel Production', 'Motion Graphics', 'Carousel Design', 'Short-Form Ad Creatives', 'Social Media Visual Systems']
+        },
+        {
+          title: 'AI-Driven Creation',
+          items: ['AI Content Production', 'Creative Ideation with AI', 'Midjourney', 'GPT-4 / Claude', 'AI-Assisted Visual Workflows']
+        },
+        {
+          title: 'Growth & Optimization',
+          items: ['A/B Testing for Creatives', 'Creative Performance Analysis', 'Content DNA Modeling', 'Social Media Analytics', 'Creative Trend Research']
+        }
+      ]
+    };
+
+    // — Araçlar —
+    const TOOLS_DATA = {
+      tr: [
+        { label: 'Yapay Zekâ ile Içerik Üretimi', tools: 'ChatGPT · Claude · Claude Code · Midjourney · DALL·E · Stable Diffusion · Leonardo AI · Runway · Pika · HeyGen · Kling AI · ElevenLabs · Speechify · Canva Pro · CapCut · VEED' },
+        { label: 'Video Kurgu & Motion',            tools: 'After Effects · Premiere Pro · CapCut' },
+        { label: 'Kreatif Araştırma & Reklam Analizi', tools: 'Foreplay · Meta Ads Library · TikTok Creative Library' },
+        { label: 'Development & API Entegrasyonları', tools: 'VS Code · GitHub · API Integrations' },
+        { label: 'Çalışma Sistemleri & Workflow',   tools: 'Notion · Airtable · Slack' }
+      ],
+      en: [
+        { label: 'AI Content Production',  tools: 'ChatGPT · Claude · Claude Code · Midjourney · DALL·E · Stable Diffusion · Leonardo AI · Runway · Pika · HeyGen · Kling AI · ElevenLabs · Speechify · Canva Pro · CapCut · VEED' },
+        { label: 'Video Editing & Motion', tools: 'After Effects · Premiere Pro · CapCut' },
+        { label: 'Creative Research & Ad Analysis', tools: 'Foreplay · Meta Ads Library · TikTok Creative Library' },
+        { label: 'Development & API Integrations', tools: 'VS Code · GitHub · API Integrations' },
+        { label: 'Workflow Systems',       tools: 'Notion · Airtable · Slack' }
+      ]
+    };
+
+    // — Iletişim —
+    // href: e-posta için "mailto:...", LinkedIn için doğrudan URL
+    const CONTACT = [
+      { label: "E-posta Gönder", href: "mailto:ipeksirinn@gmail.com", primary: true },
+      { label: "LinkedIn",       href: "https://www.linkedin.com/in/ipek-%C5%9Firin-806351113/?originalSubdomain=tr", primary: false }
+    ];
+
+    // ═══════════════════════════════════════════════════════════════════
+    //  BURADAN AŞAĞISINI DEĞIŞTIRME
+    // ═══════════════════════════════════════════════════════════════════
+
+    // — Video scrubber helper —
+    function addScrubber(video, container) {
+      const scrubber = document.createElement('div');
+      scrubber.className = 'video-scrubber';
+
+      const track = document.createElement('div');
+      track.className = 'scrubber-track';
+
+      const fill = document.createElement('div');
+      fill.className = 'scrubber-fill';
+
+      const thumb = document.createElement('div');
+      thumb.className = 'scrubber-thumb';
+
+      track.appendChild(fill);
+      track.appendChild(thumb);
+      scrubber.appendChild(track);
+      container.appendChild(scrubber);
+
+      video.addEventListener('timeupdate', () => {
+        if (video.duration) {
+          const pct = (video.currentTime / video.duration) * 100;
+          fill.style.width = pct + '%';
+          thumb.style.left = pct + '%';
+        }
+      });
+
+      let dragging = false;
+
+      function seekTo(clientX) {
+        const rect = track.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min((clientX - rect.left) / rect.width, 1));
+        if (video.duration) {
+          video.currentTime = ratio * video.duration;
+          fill.style.width = (ratio * 100) + '%';
+          thumb.style.left = (ratio * 100) + '%';
+        }
+      }
+
+      scrubber.addEventListener('mousedown', (e) => {
+        dragging = true;
+        seekTo(e.clientX);
+        e.stopPropagation();
+        e.preventDefault();
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (dragging) seekTo(e.clientX);
+      });
+
+      document.addEventListener('mouseup', () => { dragging = false; });
+
+      scrubber.addEventListener('touchstart', (e) => {
+        dragging = true;
+        seekTo(e.touches[0].clientX);
+        e.stopPropagation();
+        e.preventDefault();
+      }, { passive: false });
+
+      document.addEventListener('touchmove', (e) => {
+        if (dragging) seekTo(e.touches[0].clientX);
+      });
+
+      document.addEventListener('touchend', () => { dragging = false; });
+    }
+
+    function buildProjects() {
+      const container = document.getElementById('projects-container');
+
+      PROJECTS.forEach((project, i) => {
+        const section = document.createElement('section');
+        section.className = 'project' + (i % 2 === 1 ? ' flip' : '');
+
+        // — TEXT —
+        const textDiv = document.createElement('div');
+        textDiv.className = 'project-text';
+        textDiv.innerHTML = `
+          <span class="project-index" aria-hidden="true">0${i + 1}</span>
+          ${project.category ? `<span class="project-badge">${project.category}</span>` : ''}
+          <h2 class="project-title">${(lang === 'en' && project.title_en) ? project.title_en : (project.title_tr || project.title)}</h2>
+          ${(project.desc_tr || project.desc_en || project.desc) ? `<p class="project-desc">${(lang === 'en' && project.desc_en) ? project.desc_en : (project.desc_tr || project.desc)}</p>` : ''}
+          ${(() => { const activeTags = (lang === 'en' && project.tags_en) ? project.tags_en : (project.tags_tr || project.tags); return activeTags && activeTags.length ? `<div class="project-tags">${activeTags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''; })()}
+        `;
+
+        // — PHONES / TABLET —
+        const phonesDiv = document.createElement('div');
+
+        if (project.mockup === 'tablet-stack') {
+          phonesDiv.className = 'project-phones tablets-stack';
+
+          project.videos.forEach(src => {
+            const wrap = document.createElement('div');
+            wrap.className = 'tablet-wrap';
+
+            const tablet = document.createElement('div');
+            tablet.className = 'tablet';
+
+            const screen = document.createElement('div');
+            screen.className = 'tablet-screen';
+
+            const video = document.createElement('video');
+            video.src = src;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'tablet-overlay';
+            overlay.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+              </svg>
+            `;
+
+            screen.appendChild(video);
+            tablet.appendChild(screen);
+            tablet.appendChild(overlay);
+            addScrubber(video, tablet);
+
+            tablet.addEventListener('mouseenter', () => {
+              video.play().then(() => tablet.classList.add('playing')).catch(() => {});
+            });
+            tablet.addEventListener('mouseleave', () => {
+              video.pause();
+              tablet.classList.remove('playing');
+            });
+            tablet.addEventListener('click', () => {
+              if (video.paused) {
+                video.play().then(() => tablet.classList.add('playing')).catch(() => {});
+              } else {
+                video.pause();
+                tablet.classList.remove('playing');
+              }
+            });
+
+            wrap.appendChild(tablet);
+            phonesDiv.appendChild(wrap);
+          });
+
+        } else if (project.mockup === 'tablet') {
+          phonesDiv.className = project.videos.length >= 3
+            ? 'project-phones tablets-trio'
+            : 'project-phones project-tablet';
+
+          project.videos.forEach(src => {
+            const wrap = document.createElement('div');
+            wrap.className = 'tablet-wrap';
+
+            const tablet = document.createElement('div');
+            tablet.className = 'tablet';
+
+            const screen = document.createElement('div');
+            screen.className = 'tablet-screen';
+
+            const video = document.createElement('video');
+            video.src = src;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'tablet-overlay';
+            overlay.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+              </svg>
+            `;
+
+            screen.appendChild(video);
+            tablet.appendChild(screen);
+            tablet.appendChild(overlay);
+            addScrubber(video, tablet);
+
+            tablet.addEventListener('mouseenter', () => {
+              video.play()
+                .then(() => tablet.classList.add('playing'))
+                .catch(() => {});
+            });
+
+            tablet.addEventListener('mouseleave', () => {
+              video.pause();
+              tablet.classList.remove('playing');
+            });
+
+            tablet.addEventListener('click', () => {
+              if (video.paused) {
+                video.play()
+                  .then(() => tablet.classList.add('playing'))
+                  .catch(() => {});
+              } else {
+                video.pause();
+                tablet.classList.remove('playing');
+              }
+            });
+
+            wrap.appendChild(tablet);
+            phonesDiv.appendChild(wrap);
+          });
+
+        } else if (project.mockup === 'tablets-quint') {
+          phonesDiv.className = 'project-phones tablets-quint';
+
+          project.videos.forEach(src => {
+            const wrap = document.createElement('div');
+            wrap.className = 'tablet-wrap';
+
+            const tablet = document.createElement('div');
+            tablet.className = 'tablet';
+
+            const screen = document.createElement('div');
+            screen.className = 'tablet-screen';
+
+            const video = document.createElement('video');
+            video.src = src;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'tablet-overlay';
+            overlay.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+              </svg>
+            `;
+
+            screen.appendChild(video);
+            tablet.appendChild(screen);
+            tablet.appendChild(overlay);
+            addScrubber(video, tablet);
+
+            tablet.addEventListener('mouseenter', () => {
+              video.play().then(() => tablet.classList.add('playing')).catch(() => {});
+            });
+            tablet.addEventListener('mouseleave', () => {
+              video.pause();
+              tablet.classList.remove('playing');
+            });
+            tablet.addEventListener('click', () => {
+              if (video.paused) {
+                video.play().then(() => tablet.classList.add('playing')).catch(() => {});
+              } else {
+                video.pause();
+                tablet.classList.remove('playing');
+              }
+            });
+
+            wrap.appendChild(tablet);
+            phonesDiv.appendChild(wrap);
+          });
+
+        } else if (project.mockup === 'posts-grid') {
+          phonesDiv.className = 'project-phones posts-grid';
+
+          const VIDEO_EXTS = ['mp4', 'mov', 'webm', 'ogg'];
+
+          const INSTA_ICONS = {
+            heart: `<svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+            comment: `<svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+            share: `<svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
+            bookmark: `<svg class="insta-icon insta-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`,
+          };
+
+          const LIKE_COUNTS = ['2.341', '1.876', '3.102', '4.589', '987', '2.014'];
+
+          project.media.forEach((src, idx) => {
+            const card = document.createElement('div');
+            card.className = 'post-card';
+
+            // — Instagram header —
+            card.innerHTML = `
+              <div class="insta-header">
+                <div class="insta-avatar">
+                  <div class="insta-avatar-inner">OD</div>
+                </div>
+                <span class="insta-username">onedijital</span>
+                <span class="insta-more">···</span>
+              </div>
+            `;
+
+            // — Media area —
+            const mediaDiv = document.createElement('div');
+            mediaDiv.className = 'insta-media';
+
+            const ext = src.split('.').pop().toLowerCase();
+            const isVideo = VIDEO_EXTS.includes(ext);
+
+            const overlay = document.createElement('div');
+            overlay.className = 'post-overlay';
+            overlay.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+              </svg>
+            `;
+
+            if (isVideo) {
+              const video = document.createElement('video');
+              video.src = src;
+              video.loop = true;
+              video.playsInline = true;
+              video.muted = true;
+              video.preload = 'metadata';
+
+              mediaDiv.appendChild(video);
+              mediaDiv.appendChild(overlay);
+              addScrubber(video, mediaDiv);
+
+              card.addEventListener('mouseenter', () => {
+                video.play().then(() => card.classList.add('playing')).catch(() => {});
+              });
+              card.addEventListener('mouseleave', () => {
+                video.pause();
+                card.classList.remove('playing');
+              });
+              card.addEventListener('click', () => {
+                if (video.paused) {
+                  video.play().then(() => card.classList.add('playing')).catch(() => {});
+                } else {
+                  video.pause();
+                  card.classList.remove('playing');
+                }
+              });
+            } else {
+              const img = document.createElement('img');
+              img.src = src;
+              img.alt = '';
+              img.loading = 'lazy';
+              mediaDiv.appendChild(img);
+            }
+
+            card.appendChild(mediaDiv);
+
+            // — Instagram footer —
+            const footer = document.createElement('div');
+            footer.className = 'insta-footer';
+            footer.innerHTML = `
+              <div class="insta-actions">
+                ${INSTA_ICONS.heart}
+                ${INSTA_ICONS.comment}
+                ${INSTA_ICONS.share}
+                ${INSTA_ICONS.bookmark}
+              </div>
+              <div class="insta-likes">${LIKE_COUNTS[idx] || '1.234'} beğenme</div>
+            `;
+            card.appendChild(footer);
+
+            phonesDiv.appendChild(card);
+          });
+
+        } else if (project.videos && project.videos.length > 0) {
+          phonesDiv.className = 'project-phones' + (project.videos.length === 3 ? ' phones-trio' : '');
+
+          project.videos.forEach(src => {
+            const wrap = document.createElement('div');
+            wrap.className = 'phone-wrap';
+
+            const phone = document.createElement('div');
+            phone.className = 'phone';
+
+            const screen = document.createElement('div');
+            screen.className = 'phone-screen';
+
+            const video = document.createElement('video');
+            video.src = src;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'phone-overlay';
+            overlay.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+              </svg>
+            `;
+
+            screen.appendChild(video);
+            phone.appendChild(screen);
+            phone.appendChild(overlay);
+            addScrubber(video, phone);
+
+            phone.addEventListener('mouseenter', () => {
+              video.play()
+                .then(() => phone.classList.add('playing'))
+                .catch(() => {});
+            });
+
+            phone.addEventListener('mouseleave', () => {
+              video.pause();
+              phone.classList.remove('playing');
+            });
+
+            phone.addEventListener('click', () => {
+              if (video.paused) {
+                video.play()
+                  .then(() => phone.classList.add('playing'))
+                  .catch(() => {});
+              } else {
+                video.pause();
+                phone.classList.remove('playing');
+              }
+            });
+
+            wrap.appendChild(phone);
+            phonesDiv.appendChild(wrap);
+          });
+        }
+
+        // — BUBBLES —
+        if (project.bubbles && project.bubbles.length) {
+          project.bubbles.forEach(b => {
+            const bubble = document.createElement('span');
+            bubble.className = 'bubble' + (b.metric ? ' metric' : '');
+            bubble.textContent = b.text;
+            bubble.setAttribute('style', b.style);
+            phonesDiv.appendChild(bubble);
+          });
+        }
+
+        section.appendChild(textDiv);
+        section.appendChild(phonesDiv);
+        container.appendChild(section);
+      });
+    }
+
+    function buildSkills() {
+      const wrapper = document.getElementById('skills-section-inner');
+      if (!wrapper) return;
+      wrapper.innerHTML = '';
+
+      // — Categories grid —
+      const grid = document.createElement('div');
+      grid.className = 'skills-categories';
+      SKILLS_DATA[lang].forEach(cat => {
+        const box = document.createElement('div');
+        box.className = 'skill-category';
+        box.innerHTML = `<div class="skill-category-title">${cat.title}</div>` +
+          cat.items.map(item => `<div class="skill-item">${item}</div>`).join('');
+        grid.appendChild(box);
+      });
+      wrapper.appendChild(grid);
+
+    }
+
+    function buildContact() {
+      const container = document.getElementById('contact-links');
+      container.innerHTML = '';
+      const items = [
+        { label: I18N[lang]['contact.email'],    href: CONTACT[0].href, primary: true },
+        { label: I18N[lang]['contact.linkedin'], href: CONTACT[1].href, primary: false }
+      ];
+      items.forEach(item => {
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.className = 'contact-link' + (item.primary ? ' primary' : '');
+        a.textContent = item.label;
+        if (!item.href.startsWith('mailto')) a.target = '_blank';
+        container.appendChild(a);
+      });
+    }
+
+    function buildFooter() {
+      document.getElementById('footer-year').textContent =
+        new Date().getFullYear() + ' · ' + I18N[lang]['footer.rights'];
+    }
+
+    // ── DIL SISTEMI ──────────────────────────────────────────────────
+    let lang = 'tr';
+
+    function setLang(l) {
+      lang = l;
+
+      // 1. data-i18n elementlerini güncelle
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (I18N[lang][key] !== undefined) el.textContent = I18N[lang][key];
+      });
+
+      // 2. Karmaşık HTML elementleri
+      const name = I18N[lang]['name'];
+      document.getElementById('nav-name-el').textContent   = name;
+      document.getElementById('footer-name').textContent   = name;
+      const nameParts = name.split(' ');
+      document.getElementById('hero-firstname').textContent = nameParts[0];
+      document.getElementById('hero-lastname').textContent  = nameParts[1] || '';
+      document.title = name + ' — AI Marketing Design Lead';
+      document.getElementById('mindiary-desc').textContent = I18N[lang]['mindiary.desc'];
+      document.getElementById('mindiary-note').innerHTML  = I18N[lang]['mindiary.note'];
+      document.getElementById('contact-title').innerHTML  =
+        I18N[lang]['contact.title'] + '<br><em>' + I18N[lang]['contact.em'] + '</em>';
+      document.getElementById('lang-btn').textContent      = I18N[lang]['lang.btn'];
+      document.getElementById('resume-btn-label').textContent = I18N[lang]['resume.btn'];
+
+      // 3. JS ile üretilen bölümleri yeniden oluştur
+      document.getElementById('projects-container').innerHTML = '';
+      buildProjects();
+      buildSkills();
+      buildContact();
+      buildFooter();
+
+      // 4. html lang attr
+      document.documentElement.lang = lang;
+    }
+
+    function toggleLang() {
+      setLang(lang === 'tr' ? 'en' : 'tr');
+    }
+
+    // Ilk yükleme
+    setLang('tr');
+
+    // ── RESUME ────────────────────────────────────────────────────────
+    function openResume() {
+      window.open('resume.html', '_blank');
+    }
+
+    // ── FIXED TOOL COLUMNS ───────────────────────────────────────────
+    (function () {
+      const LEFT_TOOLS = [
+        'ChatGPT', 'Claude', 'Claude Code', 'Midjourney', 'DALL·E',
+        'Stable Diffusion', 'Leonardo AI', 'Runway', 'Pika', 'HeyGen',
+        'Kling AI', 'ElevenLabs', 'Speechify', 'Canva Pro'
+      ];
+      const RIGHT_TOOLS = [
+        'CapCut', 'VEED', 'After Effects', 'Premiere Pro',
+        'Foreplay', 'Meta Ads Library', 'TikTok Creative Library',
+        'VS Code', 'GitHub', 'API Integrations',
+        'Notion', 'Airtable', 'Slack', 'Adobe Suite'
+      ];
+
+      function buildColumn(colId, tools) {
+        const col = document.getElementById(colId);
+        col.innerHTML = '';
+        tools.forEach(function () {
+          const item = document.createElement('div');
+          item.className = 'tools-col-item';
+          col.appendChild(item);
+        });
+      }
+
+      const GLITCH_CHARS = '!@#$%^&*<>/\\|[]{}~?01ABCDEFXYZabcdxyz';
+
+      function typeItem(el, text, cb) {
+        el.textContent = '';
+        el.classList.remove('typed');
+        el.classList.add('typing');
+        let i = 0;
+
+        function typeNext() {
+          if (i >= text.length) {
+            el.textContent = text;
+            el.classList.remove('typing', 'glitch');
+            el.classList.add('typed');
+            if (cb) setTimeout(cb, 40);
+            return;
+          }
+          let scrambles = 0;
+          const correctSoFar = text.slice(0, i);
+
+          function scramble() {
+            if (scrambles < 2) {
+              el.textContent = correctSoFar + GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+              el.classList.add('glitch');
+              scrambles++;
+              setTimeout(scramble, 18);
+            } else {
+              el.classList.remove('glitch');
+              el.textContent = text.slice(0, i + 1);
+              i++;
+              setTimeout(typeNext, 14);
+            }
+          }
+          scramble();
+        }
+        typeNext();
+      }
+
+      function animateColumn(colId, tools, onDone) {
+        const items = document.getElementById(colId)
+                              .querySelectorAll('.tools-col-item');
+        let idx = 0;
+        function next() {
+          if (idx >= tools.length) {
+            if (onDone) onDone();
+            return;
+          }
+          const i = idx++;
+          typeItem(items[i], tools[i], next);
+        }
+        next();
+      }
+
+      function runLoop() {
+        // Reset all items
+        ['tools-col-left', 'tools-col-right'].forEach(function (id) {
+          document.getElementById(id)
+                  .querySelectorAll('.tools-col-item')
+                  .forEach(function (el) {
+                    el.textContent = '';
+                    el.className = 'tools-col-item';
+                  });
+        });
+
+        var leftDone = false, rightDone = false;
+        function checkRestart() {
+          if (leftDone && rightDone) setTimeout(runLoop, 800);
+        }
+        animateColumn('tools-col-left',  LEFT_TOOLS,  function () { leftDone  = true; checkRestart(); });
+        animateColumn('tools-col-right', RIGHT_TOOLS, function () { rightDone = true; checkRestart(); });
+      }
+
+      function positionColumns() {
+        const heroName = document.querySelector('.hero-name');
+        if (heroName) {
+          const r = heroName.getBoundingClientRect();
+          document.getElementById('tools-col-left').style.top  = r.top + 'px';
+          document.getElementById('tools-col-right').style.top = r.top + 'px';
+        }
+      }
+
+      window.addEventListener('load', function () {
+        buildColumn('tools-col-left',  LEFT_TOOLS);
+        buildColumn('tools-col-right', RIGHT_TOOLS);
+        positionColumns();
+        setTimeout(runLoop, 350);
+      });
+    })();
+  </script>
+
+
+</body>
+</html>

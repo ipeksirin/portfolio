@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İpek Şirin — CV</title>
+  <style>
+
+    @font-face {
+      font-family: 'Playfair';
+      src: url('../assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Playfair';
+      src: url('../assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+      font-weight: 100 900;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0e0d0b;
+      --bg-alt:    #141210;
+      --bg-card:   #111009;
+      --cream:     #F2EDE4;
+      --cream-dim: #A89F94;
+      --gold:      #C4A882;
+      --gold-dim:  rgba(196,168,130,0.18);
+      --border:    rgba(196,168,130,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(14,13,11,0.97) 60%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover { color: var(--cream); }
+
+    .back-link svg {
+      width: 14px; height: 14px;
+    }
+
+    .back-name {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 15px;
+      color: var(--cream);
+      opacity: 0.5;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 48px 100px;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cv-header-text { flex: 1; }
+
+    .cv-photo {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+    }
+
+    .cv-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .cv-name {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--cream);
+      margin-bottom: 18px;
+      white-space: nowrap;
+    }
+
+    .cv-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cv-title {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      color: var(--cream-dim);
+      margin-bottom: 36px;
+    }
+
+    .cv-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 28px;
+    }
+
+    .cv-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--cream-dim);
+    }
+
+    .cv-meta-item svg {
+      width: 12px; height: 12px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cv-meta-item a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cv-meta-item a:hover { color: var(--gold); }
+
+    /* ── TWO-COL LAYOUT ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0 72px;
+    }
+
+    /* ── SECTION ── */
+    .cv-section {
+      margin-bottom: 56px;
+    }
+
+    .cv-section-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── PROFILE ── */
+    .cv-profile p {
+      font-size: 13px;
+      line-height: 1.85;
+      color: var(--cream-dim);
+    }
+
+    /* ── LEFT COLUMN ── */
+    .cv-left .cv-section-label { margin-bottom: 20px; }
+
+    /* Contact items in left col */
+    .cv-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cv-contact-item {
+      font-size: 12px;
+      color: var(--cream-dim);
+    }
+
+    .cv-contact-item .label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .cv-contact-item a {
+      color: var(--cream-dim);
+      text-decoration: none;
+    }
+
+    .cv-contact-item a:hover { color: var(--gold); }
+
+    /* Skills in left col */
+    .cv-skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cv-skill {
+      font-size: 12px;
+      color: var(--cream-dim);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(196,168,130,0.06);
+    }
+
+    .cv-skill:last-child { border-bottom: none; }
+
+    /* Tools */
+    .cv-tools-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cv-tool-group { }
+
+    .cv-tool-group-label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .cv-tool-group p {
+      font-size: 11px;
+      color: var(--cream-dim);
+      line-height: 1.6;
+    }
+
+    /* Education in left col */
+    .cv-edu-item {
+      margin-bottom: 16px;
+    }
+
+    .cv-edu-degree {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .cv-edu-school {
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .cv-edu-year {
+      font-size: 11px;
+      color: var(--cream-dim);
+    }
+
+    /* ── EXPERIENCE ITEMS ── */
+    .cv-exp-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cv-exp-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .cv-exp-item:first-child { padding-top: 0; }
+    .cv-exp-item:last-child { border-bottom: none; }
+
+    .cv-exp-item.intern-item {
+      opacity: 0.72;
+    }
+
+    .cv-exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .cv-exp-role {
+      font-family: 'Playfair', Georgia, serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .cv-exp-badge {
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,168,130,0.35);
+      padding: 4px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .cv-exp-badge.intern-badge {
+      color: var(--cream-dim);
+      border-color: rgba(242,237,228,0.15);
+    }
+
+    .cv-exp-company {
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .cv-exp-meta {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--cream-dim);
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+
+    .cv-exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .cv-exp-bullets li {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--cream-dim);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .cv-exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.5;
+      font-size: 10px;
+    }
+
+    /* Founder block */
+    .cv-founder-block {
+      background: rgba(196,168,130,0.04);
+      border: 1px solid var(--border);
+      border-left: 2px solid rgba(196,168,130,0.4);
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .cv-founder-block .cv-exp-role {
+      font-size: 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .back-bar { padding: 16px 24px; }
+      .page { padding: 100px 24px 80px; }
+      .cv-body { grid-template-columns: 1fr; gap: 0; }
+      .cv-left { order: 2; }
+      .cv-right { order: 1; }
+      .cv-meta { flex-direction: column; gap: 10px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- BACK BAR -->
+  <div class="back-bar">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Portfolyo
+    </a>
+    <span class="back-name">İpek Şirin</span>
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="cv-header">
+      <div class="cv-header-text">
+        <h1 class="cv-name">İpek <em>Şirin</em></h1>
+        <p class="cv-title">AI MARKETING DESIGN · AUTOMATION SYSTEMS</p>
+        <div class="cv-meta">
+          <span class="cv-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Istanbul, Turkey
+          </span>
+          <span class="cv-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.18 2 2 0 0 1 3.68 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +90 538 653 30 64
+          </span>
+          <span class="cv-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:ipeksirinn@gmail.com">ipeksirinn@gmail.com</a>
+          </span>
+          <span class="cv-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <a href="https://www.linkedin.com/in/ipek-%C5%9Firin-806351113/" target="_blank">linkedin.com/in/ipek-şirin</a>
+          </span>
+        </div>
+      </div>
+      <img class="cv-photo" src="images/foto.png" alt="İpek Şirin">
+    </header>
+
+    <!-- BODY -->
+    <div class="cv-body">
+
+      <!-- ── LEFT COLUMN ── -->
+      <aside class="cv-left">
+
+        <!-- EĞİTİM -->
+        <div class="cv-section">
+          <p class="cv-section-label">EĞİTİM</p>
+          <div class="cv-edu-item">
+            <p class="cv-edu-degree">Görsel İletişim Tasarımı</p>
+            <p class="cv-edu-school">Bahçeşehir Üniversitesi</p>
+            <p class="cv-edu-year">2010 – 2016</p>
+          </div>
+        </div>
+
+        <!-- YETKİNLİKLER -->
+        <div class="cv-section">
+          <p class="cv-section-label">YETKİNLİKLER</p>
+          <div class="cv-skills-list">
+            <div class="cv-skill">Performans Odaklı Kreatif Geliştirme</div>
+            <div class="cv-skill">Hook & Hikâye Anlatımı Tasarımı</div>
+            <div class="cv-skill">Kısa Form Video Senaryosu</div>
+            <div class="cv-skill">UGC Reklam Konsepti</div>
+            <div class="cv-skill">Motion Graphics</div>
+            <div class="cv-skill">Carousel Tasarımı</div>
+            <div class="cv-skill">AI Destekli İçerik Üretimi</div>
+            <div class="cv-skill">Kreatif Ekip Liderliği</div>
+            <div class="cv-skill">Marka Sesi Geliştirme</div>
+            <div class="cv-skill">Kreatif Performans Analizi</div>
+            <div class="cv-skill">A/B Testi</div>
+            <div class="cv-skill">İş Akışı Otomasyonu</div>
+          </div>
+        </div>
+
+        <!-- ARAÇLAR -->
+        <div class="cv-section">
+          <p class="cv-section-label">ARAÇLAR</p>
+          <div class="cv-tools-list">
+            <div class="cv-tool-group">
+              <p class="cv-tool-group-label">TASARIM & MOTION</p>
+              <p>After Effects · Premiere Pro · Photoshop · Illustrator · Canva Pro · CapCut · VEED · Claude · ChatGPT · Midjourney · DALL·E · Runway · HeyGen · Kling AI · Pika · ElevenLabs · Speechify · Leonardo AI</p>
+            </div>
+            <div class="cv-tool-group">
+              <p class="cv-tool-group-label">RAKİP ANALİZİ</p>
+              <p>Foreplay · Meta Ads Library · TikTok Creative Library</p>
+            </div>
+            <div class="cv-tool-group">
+              <p class="cv-tool-group-label">AI OTOMASYON</p>
+              <p>Claude Code · VS Code · GitHub · API Entegrasyonları</p>
+            </div>
+            <div class="cv-tool-group">
+              <p class="cv-tool-group-label">İŞ AKIŞI</p>
+              <p>Airtable · Notion · Google Workspace · Slack</p>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── RIGHT COLUMN ── -->
+      <main class="cv-right">
+
+        <!-- PROFİL -->
+        <div class="cv-section">
+          <p class="cv-section-label">KISACA BEN</p>
+          <div class="cv-profile">
+            <p>Yapay zeka araçlarını yaratıcı içerik üretimiyle birleştiren bir tasarım ve strateji lideriyim. Mobil uygulamalar ve dijital ürünler için performans odaklı reklam kreatifleri, motion design çalışmaları ve kısa format video konseptleri üretiyorum.</p>
+            <br>
+            <p>Yapay zekayı; konsept geliştirme, kreatif varyasyon üretimi ve üretim süreçlerini hızlandırmak için aktif olarak kullanıyorum.</p>
+            <br>
+            <p>Şu anda odağım, yapay zeka destekli kreatif sistemler, otomasyon tabanlı iş akışları ve ölçeklenebilir içerik üretim süreçleri kurmak üzerine. Otomasyon sistemlerini sıfırdan tasarlamak ve geliştirmek konusunda hem profesyonel çalışmalarım hem de kişisel merakım doğrultusunda deneyim kazanmaya ve bu alanda kendimi ilerletmeye devam ediyorum.</p>
+          </div>
+        </div>
+
+        <!-- İŞ DENEYİMİ -->
+        <div class="cv-section">
+          <p class="cv-section-label">İŞ DENEYİMİ</p>
+
+          <div class="cv-exp-list">
+
+            <!-- Marketing Design Manager -->
+            <div class="cv-exp-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Marketing Design Manager</h2>
+                <span class="cv-exp-badge">Uzaktan</span>
+              </div>
+              <p class="cv-exp-company">Ouro Media — kitUP + Mindguru etc.</p>
+              <p class="cv-exp-meta">01/2024 – 07/2025</p>
+              <ul class="cv-exp-bullets">
+                <li>Marketing Manager ile birlikte kampanya hedeflerini görsel üretime bağlayan kreatif stratejiyi yürüttü</li>
+                <li>Airtable tabanlı takip sistemleri ile tasarım ekibinin iş akışını, zaman çizelgelerini ve görev dağılımını organize etti</li>
+                <li>Ekibi, birden fazla pazardaki mobil uygulama kampanyaları için performans odaklı kreatifler üretmesi yönünde yönlendirdi</li>
+                <li>Çıktıları tutarlılık, netlik ve marka uyumu açısından inceledi; performans verilerinden görsel yön şekillendirdi</li>
+                <li>Kısa form reklam formatları için senaryo, hook ve görsel konsept ideasyonunu destekledi</li>
+                <li>Tasarım, pazarlama ve ürün ekipleri arasında köprü görevi üstlendi</li>
+                <li>ChatGPT, Claude, Midjourney, Runway, HeyGen, Kling AI, Pika, CapCut AI, ElevenLabs, VEED, Speechify gibi yapay zeka araçlarını ideation, seslendirme ve hızlı varyasyon üretimi için aktif olarak kullandı</li>
+              </ul>
+            </div>
+
+            <!-- Senior Marketing Designer -->
+            <div class="cv-exp-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Marketing Designer</h2>
+                <span class="cv-exp-badge">Uzaktan</span>
+              </div>
+              <p class="cv-exp-company">Ouro Media — kitUP + Mindguru etc.</p>
+              <p class="cv-exp-meta">07/2023 – 01/2024</p>
+              <ul class="cv-exp-bullets">
+                <li>Birden fazla pazardaki mobil uygulama kampanyaları için kısa form pazarlama videoları, motion grafikleri ve reklam kreatifleri üretti</li>
+                <li>After Effects, Premiere Pro, Photoshop ve Illustrator kullanarak 2D motion grafikleri ve animasyon varlıkları tasarladı</li>
+                <li>Etkileşim için optimize edilmiş UGC tarzı görseller ve kısa form reklam videoları geliştirdi</li>
+                <li>Kreatif performans geri bildirimlerini analiz ederek yeni görsel yönler için fikirler üreetti</li>
+                <li>Kısa form reklamlar için senaryo geliştirme ve görsel hikâye anlatımı yapısını destekledi</li>
+                <li>Mevcut kreatifleri farklı formatlar, pazarlar ve platformlara uyarladı ve yerelleştirdi</li>
+              </ul>
+            </div>
+
+            <!-- Social Media Manager -->
+            <div class="cv-exp-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Sosyal Medya Yöneticisi</h2>
+                <span class="cv-exp-badge">Freelance</span>
+              </div>
+              <p class="cv-exp-company">Suolo Urla Boutique Hotel & Fine Dining Restaurant</p>
+              <p class="cv-exp-meta">04/2023 – 01/2024</p>
+              <ul class="cv-exp-bullets">
+                <li>Markanın sosyal medya varlığını yönetti; mekânın atmosferi ve hedef kitlesine uygun görsel içerik planladı ve üretti</li>
+                <li>Dijital ve basılı menüler tasarladı; restoranın kimliği ve misafir deneyimiyle görsel tutarlılık sağladı</li>
+                <li>Hem kreatif üretimi hem de teslimat süreçlerini bağımsız olarak yürüttü</li>
+              </ul>
+            </div>
+
+            <!-- Graphic & Motion Designer - Perkon -->
+            <div class="cv-exp-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Art Director</h2>
+                <span class="cv-exp-badge">Yarı Zamanlı · Uzaktan</span>
+              </div>
+              <p class="cv-exp-company">Fevkinde Dijital & Kreatif Reklam Ajansı</p>
+              <p class="cv-exp-meta">09/2021 – 03/2023 · İstanbul</p>
+              <ul class="cv-exp-bullets">
+                <li>Lotus, Optimum, Hepsiburada, Batiste, Yolo ve dönemsel olarak farklı sektörlerden markalar için motion ve statik formatları kapsayan aylık sosyal medya içerikleri üretti</li>
+                <li>Konsept ideasyonuna katkıda bulundu; her markanın görünümü ve kitlesine uygun kampanya yönleri tasarladı</li>
+                <li>Farklı platformlara özel animasyonlar, sosyal medya kreatifleri ve dijital varlıklar geliştirdi</li>
+                <li>Kreatif fikirleri kampanya yönlerine dönüştürmek için müşteriyle yüz yüze çalışan profesyonellerle iş birliği yaptı</li>
+                <li>Marka kimliği geliştirme ve müşteri sunum materyallerine katkıda bulundu</li>
+              </ul>
+            </div>
+
+            <!-- Founder -->
+            <div class="cv-exp-item">
+              <div class="cv-founder-block">
+                <div class="cv-exp-header">
+                  <h2 class="cv-exp-role">Kurucu & Marka Sahibi</h2>
+                  <span class="cv-exp-badge">Bağımsız</span>
+                </div>
+                <p class="cv-exp-company">Hoff Concept — El Yapımı Ev Kokusu & Mum Markası</p>
+                <p class="cv-exp-meta">2018 – Devam ediyor</p>
+                <ul class="cv-exp-bullets">
+                  <li>Marka kimliğini sıfırdan kurdu — logo, ambalaj, tipografi ve web sitesi tasarımı</li>
+                  <li>Ürün araştırması ve formül geliştirme süreçlerini yönetti</li>
+                  <li>İçerik üretimi, sosyal medya yönetimi ve dijital pazarlamayı baştan sona bağımsız olarak yürüttü</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Art Director - One Dijital -->
+            <div class="cv-exp-item intern-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Art Director</h2>
+                <span class="cv-exp-badge intern-badge">İstanbul</span>
+              </div>
+              <p class="cv-exp-company">One Dijital Reklam Ajansı</p>
+              <p class="cv-exp-meta">09/2017 – 09/2022 · Stajyer → Junior Art Director → Art Director</p>
+              <ul class="cv-exp-bullets">
+                <li>Stajyer olarak başladığı ajansta Junior Art Director ve Art Director pozisyonlarına yükseldi</li>
+                <li>Farklı sektörlerdeki kampanyalar için kreatif konsept geliştirdi</li>
+                <li>Kampanya stratejilerine uygun görsel kimlikler, sosyal medya videoları ve reklam görselleri üretti</li>
+                <li>Müşterilerle doğrudan iş birliği yaptı; sunum ve iletişim materyallerini destekledi</li>
+                <li>2020'de uzaktan çalışma sistemine geçerek üretimini aynı tempoda sürdürdü</li>
+              </ul>
+            </div>
+
+            <!-- Graphic & Motion Designer Stajyer -->
+            <div class="cv-exp-item intern-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Grafik & Motion Designer</h2>
+                <span class="cv-exp-badge intern-badge">Stajyer</span>
+              </div>
+              <p class="cv-exp-company">CAN Dijital & Reklam Stüdyosu</p>
+              <p class="cv-exp-meta">09/2017 – 12/2017 · İstanbul</p>
+              <ul class="cv-exp-bullets">
+                <li>Art director'a sosyal medya için statik görsel varlıklar ve motion grafikleri üretmede destek oldu</li>
+                <li>Müşteri odaklı tasarım süreçleri ve geri bildirim döngülerine ilk deneyimini edindi</li>
+              </ul>
+            </div>
+
+            <!-- Stajyer - CodeBit Studio -->
+            <div class="cv-exp-item intern-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">3D Modelleme & Animasyon Stajyeri</h2>
+                <span class="cv-exp-badge intern-badge">İstanbul</span>
+              </div>
+              <p class="cv-exp-company">CodeBit Studio</p>
+              <p class="cv-exp-meta">06/2017 – 10/2017 · İstanbul</p>
+              <ul class="cv-exp-bullets">
+                <li>Kişisel merakıyla Unreal Engine'i baştan sona öğrendi; Blueprint sistemiyle çalışarak markalar için 3D animasyonlar üretti</li>
+                <li>VR teknolojisini kullanarak uzaktan toplantı ve sunum hizmetleri geliştirdi; müşterilere sürükleyici sanal deneyimler sundu</li>
+                <li>Staj sürecinde teknik yetkinliğini hızla ilerleterek bağımsız proje çıktıları üretti</li>
+              </ul>
+            </div>
+
+            <!-- Stajyer - Dream Design Factory -->
+            <div class="cv-exp-item intern-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Stajyer Grafik Tasarımcı</h2>
+                <span class="cv-exp-badge intern-badge">İstanbul</span>
+              </div>
+              <p class="cv-exp-company">Dream Design Factory</p>
+              <p class="cv-exp-meta">11/2015 – 01/2016 · İstanbul</p>
+              <ul class="cv-exp-bullets">
+                <li>Ajans ortamında farklı sektörlerden markalar için konsept geliştirme ve görsel üretim süreçlerine katkıda bulundu</li>
+                <li>Tasarım ekibiyle birlikte dijital varlıklar ve sunum materyalleri hazırladı</li>
+                <li>Profesyonel iş akışı ve müşteri odaklı çalışma disiplinini ilk kez bu deneyimde edindi</li>
+              </ul>
+            </div>
+
+            <!-- Stajyer Grafik Tasarımcı - DUCK Design Studio -->
+            <div class="cv-exp-item intern-item">
+              <div class="cv-exp-header">
+                <h2 class="cv-exp-role">Stajyer Grafik Tasarımcı</h2>
+                <span class="cv-exp-badge intern-badge">İstanbul</span>
+              </div>
+              <p class="cv-exp-company">DUCK Design Studio</p>
+              <p class="cv-exp-meta">06/2015 – 08/2015 · İstanbul</p>
+              <ul class="cv-exp-bullets">
+                <li>Markalar için statik görsel varlıklar ve konsept tasarımları üretti</li>
+                <li>Görsel akış, etkileşim tasarımı ve grafik üretim süreçlerinde aktif rol aldı</li>
+                <li>Kullanıcı odaklı tasarım ve interaktif projelere erken aşamadan dahil oldu</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
