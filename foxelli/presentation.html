@@ -164,6 +164,7 @@
     position: relative;
   }
   .hero-title span { color: var(--amber); }
+  .hero-title .nowrap { color: #fff; white-space: nowrap; }
   .hero-author {
     font-size: 15px;
     color: rgba(255,255,255,0.45);
@@ -516,6 +517,7 @@
     .part-banner { padding: 60px 24px; }
     .workflow-bar { flex-wrap: wrap; gap: 10px; justify-content: center; }
     .wf-step::after { display: none; }
+    .hero-title { font-size: clamp(32px, 9vw, 52px); }
   }
 
   /* ── PRINT / PDF ── */
@@ -575,7 +577,7 @@
 <!-- ══════════ HERO ══════════ -->
 <section id="hero">
   <span class="hero-badge">FoxelliGroup · AI Media Creator · Test Task</span>
-  <h1 class="hero-title">Mrs. <span>Quilty</span><br>Content Creation</h1>
+  <h1 class="hero-title">Mrs. <span>Quilty</span><br><span class="nowrap">Content Creation</span></h1>
   <p class="hero-author">İpek Şirin</p>
   <p class="hero-sub">AI-generated lifestyle imagery & short-form video content designed to connect with the Mrs. Quilty community — authentic, warm, and handcrafted in feel.</p>
   <div class="hero-tags">
