@@ -1051,6 +1051,14 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
 
   document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+  // Touch devices: autoplay thumbnails since hover doesn't work
+  if ('ontouchstart' in window) {
+    document.querySelectorAll('.video-thumb video').forEach(v => {
+      v.setAttribute('autoplay', '');
+      v.play().catch(() => {});
+    });
+  }
 </script>
 </body>
 </html>
