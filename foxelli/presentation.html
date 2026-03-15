@@ -48,13 +48,6 @@
     padding: 0 40px;
     height: 52px;
   }
-  #topnav .tools-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 40px 8px;
-    gap: 6px;
-  }
   #topnav .brand {
     font-family: 'Playfair Display', serif;
     font-size: 15px;
@@ -78,19 +71,6 @@
   }
   #topnav nav a:hover { color: #fff; background: rgba(255,255,255,0.1); }
   #topnav nav a.active { color: #fff; background: rgba(232,168,64,0.2); color: var(--amber); }
-  #topnav .tools-row a {
-    color: #1a1a1a;
-    background: var(--amber);
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 20px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    letter-spacing: 0.2px;
-  }
-  #topnav .tools-row a:hover { background: #f5c842; }
 
   /* ── SECTION BASE ── */
   .sec {
@@ -525,11 +505,9 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .desktop-only { display: none !important; }
-    #topnav .nav-row { padding: 0 8px; justify-content: center; }
-    #topnav nav { flex-wrap: wrap; justify-content: center; gap: 3px; }
-    #topnav nav a { font-size: 10px; padding: 5px 8px; }
-    #topnav .tools-row { padding: 0 8px 8px; flex-wrap: wrap; justify-content: center; gap: 4px; }
-    #topnav .tools-row a { font-size: 10px; padding: 4px 9px; }
+    #topnav .nav-row { padding: 8px 12px; height: auto; justify-content: center; }
+    #topnav nav { flex-wrap: wrap; justify-content: center; gap: 4px; }
+    #topnav nav a { font-size: 11px; padding: 6px 11px; }
     .brief-grid, .approach-grid, .tools-grid, .process-grid, .ps-grid { grid-template-columns: 1fr; }
     .video-layout { grid-template-columns: 1fr; }
     .video-player-wrap { position: static; }
@@ -591,13 +569,6 @@
       <a href="#prompt-strategy">Prompts</a>
       <a href="#process">Process</a>
     </nav>
-  </div>
-  <div class="tools-row">
-    <a href="#tools">Midjourney</a>
-    <a href="#tools">Freepik AI</a>
-    <a href="#tools">Kling AI</a>
-    <a href="#tools">Runway</a>
-    <a href="#tools">Adobe After Effects</a>
   </div>
 </header>
 
