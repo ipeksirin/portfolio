@@ -1609,6 +1609,8 @@
     @media (max-width: 900px) {
       nav { padding: 20px 28px; }
       .mindiary-section { padding: 80px 28px; }
+      .hoff-section { padding: 80px 28px; }
+      .hoff-section .mindiary-inner { grid-template-columns: 1fr; }
       .mindiary-inner { grid-template-columns: 1fr; gap: 48px; }
       .mindiary-screens { height: 360px; }
       .projects { padding: 0 28px 60px; }
@@ -1626,6 +1628,47 @@
       .phone { width: 170px; height: 348px; }
 
       footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ── HOFF CONCEPT FEATURED ───────────────────────────────────────────── */
+    .hoff-section {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 120px 60px;
+    }
+
+    .hoff-section .mindiary-inner {
+      grid-template-columns: 1.3fr 1fr;
+    }
+
+    .hoff-status {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 20px;
+    }
+
+    .hoff-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,168,130,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hoff-link:hover {
+      color: var(--cream);
+      border-color: var(--cream);
     }
 
     /* ── RESUME BUTTON ──────────────────────────────────────────────── */
@@ -1823,6 +1866,80 @@
 <!-- PROJECTS — JS tarafından doldurulur -->
   <main class="projects" id="projects-container"></main>
 
+  <!-- HOFF CONCEPT FEATURED -->
+  <section class="hoff-section">
+    <div class="mindiary-inner">
+
+      <!-- Screenshot — sol -->
+      <div class="mindiary-screens">
+        <div class="screen-browser screen-main">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/hoff_screen1.png" alt="Hoff Concept"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshot ekle → screenshots/hoff_screen1.png</div>'">
+        </div>
+        <div class="screen-browser screen-secondary">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/hoff_screen2.png" alt="Hoff Concept"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/hoff_screen2.png</div>'">
+        </div>
+        <div class="screen-browser screen-tertiary">
+          <div class="screen-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url"></div>
+          </div>
+          <img src="screenshots/hoff_screen3.png" alt="Hoff Concept"
+               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/hoff_screen3.png</div>'">
+        </div>
+      </div>
+
+      <!-- Text — sağ -->
+      <div class="mindiary-text">
+        <span class="mindiary-eyebrow" data-i18n="hoff.eyebrow">MARKA KURUCUSU · 2018</span>
+        <span class="hoff-status" data-i18n="hoff.status">EYLÜL 2026'DA DEVAM EDECEK</span>
+        <h2 class="mindiary-title">Hoff <em>Concept</em></h2>
+        <p class="mindiary-desc" id="hoff-desc">
+          Hoff Concept, el yapımı ev kokusu ve mum ürünlerinden oluşan, sıfırdan kurduğum bir markadır.
+          Marka kimliğinden ambalaj tasarımına, içerik üretiminden dijital pazarlamaya kadar tüm süreci
+          bağımsız olarak yönetiyorum.
+        </p>
+        <div class="mindiary-note" id="hoff-note">
+          <p>
+            Logo, ambalaj ve web sitesini sıfırdan tasarladım. Ürün araştırma ve formülasyon geliştirme
+            süreçlerinde aktif rol aldım. İçerik üretimi, sosyal medya ve dijital pazarlamayı
+            baştan sona tek başıma yönetiyorum.
+          </p>
+        </div>
+        <div class="mindiary-tech">
+          <span class="tag">Marka Kimliği</span>
+          <span class="tag">Ambalaj Tasarımı</span>
+          <span class="tag">İçerik Üretimi</span>
+          <span class="tag">Web Tasarımı</span>
+          <span class="tag">Sosyal Medya</span>
+        </div>
+        <a href="https://www.hoffconcept.com/" target="_blank" class="hoff-link" data-i18n="hoff.link">WEB SİTESİNİ ZİYARET ET →</a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact">
     <p class="contact-eyebrow" data-i18n="contact.eyebrow">Birlikte çalışalım</p>
@@ -1977,6 +2094,11 @@
         'mindiary.eyebrow':'KİŞİSEL PROJE · 2026',
         'mindiary.desc':   'Mindiary, tarafımdan geliştirilen zihinsel farkındalık ve kişisel gelişim alanında bir içerik markası. Marka için sıfırdan bir AI içerik motoru geliştirdim — içerik stratejisi üretiminden carousel tasarımına, rakip analizinden sosyal medya yönetimine kadar tüm süreci tek bir akışta birleştiren bir sistem.',
         'mindiary.note':   '<p>Kendi inisiyatifimle kurduğum bir sistemin çıktısı. Stratejiden üretime kadar tüm akışı tek bir yapıda birleştiren uçtan uca bir content engine geliştirdim — bu portfolyo da o sürecin somut bir yansıması.</p>',
+        'hoff.eyebrow':    'MARKA KURUCUSU · 2018',
+        'hoff.status':     'EYLÜL 2026\'DA DEVAM EDECEK',
+        'hoff.desc':       'Hoff Concept, el yapımı ev kokusu ve mum ürünlerinden oluşan, sıfırdan kurduğum bir markadır. Marka kimliğinden ambalaj tasarımına, içerik üretiminden dijital pazarlamaya kadar tüm süreci bağımsız olarak yönetiyorum.',
+        'hoff.note':       '<p>Logo, ambalaj ve web sitesini sıfırdan tasarladım. Ürün araştırma ve formülasyon geliştirme süreçlerinde aktif rol aldım. İçerik üretimi, sosyal medya ve dijital pazarlamayı baştan sona tek başıma yönetiyorum.</p>',
+        'hoff.link':       'WEB SİTESİNİ ZİYARET ET →',
         'section.title':   'Seçki',
         'section.sub':     'Marka ve performans projelerinden bir derleme.',
         'skills.label':    'Uzmanlık Alanları',
@@ -2001,6 +2123,11 @@
         'mindiary.eyebrow':'Personal Project · 2026',
         'mindiary.desc':   'Mindiary is a content brand in the field of mental awareness and personal growth. I built an AI content engine from scratch — a system that combines content strategy, carousel production, competitive analysis, and social media management in a single workflow.',
         'mindiary.note':   "<p><strong>The result of self-initiated system building.</strong> I designed an end-to-end content engine that unifies strategy, production, and distribution in a single autonomous workflow — a model where creative direction and technical integration are owned by one person.</p>",
+        'hoff.eyebrow':    'BRAND FOUNDER · 2018',
+        'hoff.status':     'To be continued in Sept 2026',
+        'hoff.desc':       'Hoff Concept is a handcrafted home fragrance & candle brand I built from the ground up. I independently manage all processes — from brand identity and packaging design to product development and digital marketing.',
+        'hoff.note':       '<p><strong>Every layer built independently.</strong> Designed the brand identity, logo, packaging, and website from scratch. Led product research and formulation development, and independently manage content creation, social media presence, and digital marketing end-to-end.</p>',
+        'hoff.link':       'VISIT WEBSITE →',
         'section.title':   'Selected Work',
         'section.sub':     'A collection of brand and performance projects.',
         'skills.label':    'Expertise',
@@ -2568,6 +2695,8 @@
       document.title = name + ' — AI Marketing Design Lead';
       document.getElementById('mindiary-desc').textContent = I18N[lang]['mindiary.desc'];
       document.getElementById('mindiary-note').innerHTML  = I18N[lang]['mindiary.note'];
+      document.getElementById('hoff-desc').textContent    = I18N[lang]['hoff.desc'];
+      document.getElementById('hoff-note').innerHTML      = I18N[lang]['hoff.note'];
       document.getElementById('contact-title').innerHTML  =
         I18N[lang]['contact.title'] + '<br><em>' + I18N[lang]['contact.em'] + '</em>';
       document.getElementById('resume-btn-label').textContent = I18N[lang]['resume.btn'];
