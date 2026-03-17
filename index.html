@@ -697,6 +697,14 @@
       background: #000;
     }
 
+    .tablet-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
     .tablet-overlay {
       position: absolute;
       inset: 0;
@@ -956,7 +964,10 @@
     }
 
     @media (max-width: 900px) {
-      .tablets-trio { width: 320px; height: 260px; }
+      .tablets-trio {
+        width: min(320px, calc(100vw - 56px));
+        height: 260px;
+      }
       .tablets-trio .tablet { width: 200px; height: 125px; border-radius: 9px; }
     }
 
@@ -2267,7 +2278,6 @@
             if (isImage) {
               const img = document.createElement('img');
               img.src = src;
-              img.style.cssText = 'width:100%;height:100%;display:block;object-fit:cover;';
               screen.appendChild(img);
               tablet.appendChild(screen);
             } else {
