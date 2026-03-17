@@ -1609,10 +1609,9 @@
     @media (max-width: 900px) {
       nav { padding: 20px 28px; }
       .mindiary-section { padding: 80px 28px; }
-      .hoff-section { padding: 80px 28px; }
-      .hoff-section .mindiary-inner { grid-template-columns: 1fr; }
       .mindiary-inner { grid-template-columns: 1fr; gap: 48px; }
       .mindiary-screens { height: 360px; }
+
       .projects { padding: 0 28px 60px; }
 
       .project,
@@ -1630,46 +1629,6 @@
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
 
-    /* ── HOFF CONCEPT FEATURED ───────────────────────────────────────────── */
-    .hoff-section {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 120px 60px;
-    }
-
-    .hoff-section .mindiary-inner {
-      grid-template-columns: 1.3fr 1fr;
-    }
-
-    .hoff-status {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--cream-dim);
-      margin-bottom: 20px;
-    }
-
-    .hoff-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(196,168,130,0.3);
-      padding-bottom: 2px;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .hoff-link:hover {
-      color: var(--cream);
-      border-color: var(--cream);
-    }
 
     /* ── RESUME BUTTON ──────────────────────────────────────────────── */
     .resume-btn {
@@ -1866,81 +1825,6 @@
 <!-- PROJECTS — JS tarafından doldurulur -->
   <main class="projects" id="projects-container"></main>
 
-  <!-- HOFF CONCEPT FEATURED -->
-  <section class="hoff-section">
-    <div class="mindiary-inner">
-
-      <!-- Screenshot — sol -->
-      <div class="mindiary-screens">
-        <div class="screen-browser screen-main">
-          <div class="screen-bar">
-            <div class="browser-dots">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-            </div>
-            <div class="browser-url"></div>
-          </div>
-          <img src="screenshots/hoff_screen1.png" alt="Hoff Concept"
-               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshot ekle → screenshots/hoff_screen1.png</div>'">
-        </div>
-        <div class="screen-browser screen-secondary">
-          <div class="screen-bar">
-            <div class="browser-dots">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-            </div>
-            <div class="browser-url"></div>
-          </div>
-          <img src="screenshots/hoff_screen2.png" alt="Hoff Concept"
-               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/hoff_screen2.png</div>'">
-        </div>
-        <div class="screen-browser screen-tertiary">
-          <div class="screen-bar">
-            <div class="browser-dots">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-            </div>
-            <div class="browser-url"></div>
-          </div>
-          <img src="screenshots/hoff_screen3.png" alt="Hoff Concept"
-               onerror="this.outerHTML='<div class=\'screen-placeholder\'>screenshots/hoff_screen3.png</div>'">
-        </div>
-      </div>
-
-      <!-- Text — sağ -->
-      <div class="mindiary-text">
-        <span class="mindiary-eyebrow" data-i18n="hoff.eyebrow">MARKA KURUCUSU · 2018</span>
-        <span class="hoff-status" data-i18n="hoff.status">EYLÜL 2026'DA DEVAM EDECEK</span>
-        <h2 class="mindiary-title">Hoff <em>Concept</em></h2>
-        <p class="mindiary-desc" id="hoff-desc">
-          Hoff Concept, el yapımı ev kokusu ve mum ürünlerinden oluşan, sıfırdan kurduğum bir markadır.
-          Marka kimliğinden ambalaj tasarımına, içerik üretiminden dijital pazarlamaya kadar tüm süreci
-          bağımsız olarak yönetiyorum.
-        </p>
-        <div class="mindiary-note" id="hoff-note">
-          <p>
-            Logo, ambalaj ve web sitesini sıfırdan tasarladım. Ürün araştırma ve formülasyon geliştirme
-            süreçlerinde aktif rol aldım. İçerik üretimi, sosyal medya ve dijital pazarlamayı
-            baştan sona tek başıma yönetiyorum.
-          </p>
-        </div>
-        <div class="mindiary-tech">
-          <span class="tag">Marka Kimliği</span>
-          <span class="tag">Ambalaj Tasarımı</span>
-          <span class="tag">İçerik Üretimi</span>
-          <span class="tag">Web Tasarımı</span>
-          <span class="tag">Sosyal Medya</span>
-          <span class="tag">Dijital Pazarlama</span>
-        </div>
-        <a href="https://www.hoffconcept.com/" target="_blank" class="hoff-link" data-i18n="hoff.link">WEB SİTESİNİ ZİYARET ET →</a>
-      </div>
-
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section class="contact">
     <p class="contact-eyebrow" data-i18n="contact.eyebrow">Birlikte çalışalım</p>
@@ -2076,6 +1960,16 @@
         tags: ["Unreal Engine", "VR", "3D"],
         videos: ["videos/1.mp4", "videos/2.mp4", "videos/3.mp4", "videos/4.mp4", "videos/5.mp4"],
         mockup: "tablets-quint"
+      },
+      {
+        title: "Hoff Concept",
+        desc: "El yapımı ev kokusu ve mum ürünlerinden oluşan, sıfırdan kurduğum bir markadır. Marka kimliğinden ambalaj tasarımına, içerik üretiminden dijital pazarlamaya kadar tüm süreci bağımsız olarak yönetiyorum.",
+        desc_en: "A handcrafted home fragrance & candle brand I built from the ground up. I independently manage all processes — from brand identity and packaging design to product development and digital marketing.",
+        category: "Marka Kurucusu",
+        tags: ["Marka Kimliği", "Ambalaj Tasarımı", "Web Tasarımı", "Sosyal Medya"],
+        link: { url: "https://www.hoffconcept.com/", label: "WEB SİTESİNİ ZİYARET ET →" },
+        videos: ["screenshots/hoff_screen2.png", "screenshots/hoff_screen1.png", "screenshots/hoff_screen3.png"],
+        mockup: "tablet"
       }
     ];
 
@@ -2368,47 +2262,57 @@
             const screen = document.createElement('div');
             screen.className = 'tablet-screen';
 
-            const video = document.createElement('video');
-            video.src = src;
-            video.loop = true;
-            video.playsInline = true;
-            video.preload = 'metadata';
+            const isImage = /\.(png|jpg|jpeg|webp|gif)$/i.test(src);
 
-            const overlay = document.createElement('div');
-            overlay.className = 'tablet-overlay';
-            overlay.innerHTML = `
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
-              </svg>
-            `;
+            if (isImage) {
+              const img = document.createElement('img');
+              img.src = src;
+              img.style.cssText = 'width:100%;height:100%;display:block;object-fit:cover;';
+              screen.appendChild(img);
+              tablet.appendChild(screen);
+            } else {
+              const video = document.createElement('video');
+              video.src = src;
+              video.loop = true;
+              video.playsInline = true;
+              video.preload = 'metadata';
 
-            screen.appendChild(video);
-            tablet.appendChild(screen);
-            tablet.appendChild(overlay);
-            addScrubber(video, tablet);
+              const overlay = document.createElement('div');
+              overlay.className = 'tablet-overlay';
+              overlay.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                  <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+                </svg>
+              `;
 
-            tablet.addEventListener('mouseenter', () => {
-              video.play()
-                .then(() => tablet.classList.add('playing'))
-                .catch(() => {});
-            });
+              screen.appendChild(video);
+              tablet.appendChild(screen);
+              tablet.appendChild(overlay);
+              addScrubber(video, tablet);
 
-            tablet.addEventListener('mouseleave', () => {
-              video.pause();
-              tablet.classList.remove('playing');
-            });
-
-            tablet.addEventListener('click', () => {
-              if (video.paused) {
+              tablet.addEventListener('mouseenter', () => {
                 video.play()
                   .then(() => tablet.classList.add('playing'))
                   .catch(() => {});
-              } else {
+              });
+
+              tablet.addEventListener('mouseleave', () => {
                 video.pause();
                 tablet.classList.remove('playing');
-              }
-            });
+              });
+
+              tablet.addEventListener('click', () => {
+                if (video.paused) {
+                  video.play()
+                    .then(() => tablet.classList.add('playing'))
+                    .catch(() => {});
+                } else {
+                  video.pause();
+                  tablet.classList.remove('playing');
+                }
+              });
+            }
 
             wrap.appendChild(tablet);
             phonesDiv.appendChild(wrap);
@@ -2696,8 +2600,7 @@
       document.title = name + ' — AI Marketing Design Lead';
       document.getElementById('mindiary-desc').textContent = I18N[lang]['mindiary.desc'];
       document.getElementById('mindiary-note').innerHTML  = I18N[lang]['mindiary.note'];
-      document.getElementById('hoff-desc').textContent    = I18N[lang]['hoff.desc'];
-      document.getElementById('hoff-note').innerHTML      = I18N[lang]['hoff.note'];
+
       document.getElementById('contact-title').innerHTML  =
         I18N[lang]['contact.title'] + '<br><em>' + I18N[lang]['contact.em'] + '</em>';
       document.getElementById('resume-btn-label').textContent = I18N[lang]['resume.btn'];
