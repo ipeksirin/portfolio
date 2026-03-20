@@ -651,7 +651,7 @@
     }
 
     .tablet:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-10px) scale(1.08);
       box-shadow:
         0 0 0 10px #171512,
         0 0 0 11px #2c2926,
@@ -697,20 +697,13 @@
       background: #111;
     }
 
-    .tablet-screen video {
+    .tablet-screen video,
+    .tablet-screen img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
       background: #000;
-    }
-
-    .tablet-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
     }
 
     .tablet-overlay {
@@ -875,6 +868,23 @@
       .tablets-stack .tablet-wrap:nth-child(2) { top: 110px; }
     }
 
+    /* Combo layout içindeki trio — daha büyük + yukarıda */
+    .tablet-posts-combo .tablets-trio {
+      width: 560px;
+      height: 440px;
+      margin-top: -24px;
+    }
+    .tablet-posts-combo .tablets-trio .tablet {
+      width: 360px;
+      height: 226px;
+      border-radius: 15px;
+    }
+    .tablet-posts-combo .tablets-trio .tablet::before {
+      width: 7px; height: 7px; top: 11px;
+    }
+    .tablet-posts-combo .tablets-trio .tablet-screen { border-radius: 13px; }
+    .tablet-posts-combo .tablets-trio .tablet-overlay { border-radius: 13px; }
+
     /* ── TABLET TRIO LAYOUT (3 tablet) ──────────────────────────────── */
     /* Orta üstte, yanlarda arkada/altta */
     .tablets-trio {
@@ -972,10 +982,7 @@
     }
 
     @media (max-width: 900px) {
-      .tablets-trio {
-        width: min(320px, calc(100vw - 56px));
-        height: 260px;
-      }
+      .tablets-trio { width: 320px; height: 260px; }
       .tablets-trio .tablet { width: 200px; height: 125px; border-radius: 9px; }
     }
 
@@ -1110,6 +1117,117 @@
       .tablets-quint .tablet-wrap:nth-child(3) { top: 18px; left: 226px; }
       .tablets-quint .tablet-wrap:nth-child(4) { top: 148px; left: 58px; }
       .tablets-quint .tablet-wrap:nth-child(5) { top: 148px; left: 174px; }
+    }
+
+    /* ── TABLET + POSTS COMBO ────────────────────────────────────────── */
+    .project-phones.tablet-posts-combo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      flex-shrink: 0;
+    }
+
+    .sq-posts-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .sq-post {
+      position: relative;
+      width: 164px;
+      height: 164px;
+      border-radius: 14px;
+      background: var(--phone-bg);
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 7px #171512,
+        0 0 0 8px #2c2926,
+        0 20px 50px rgba(0,0,0,0.6),
+        0 0 30px rgba(196,168,130,0.04);
+      transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s ease;
+    }
+
+    .sq-posts-row .sq-post:nth-child(1) { transform: rotate(-3deg) translateY(6px); }
+    .sq-posts-row .sq-post:nth-child(2) { transform: rotate(0deg) translateY(0); z-index: 2; }
+    .sq-posts-row .sq-post:nth-child(3) { transform: rotate(3deg) translateY(6px); }
+
+    .sq-post:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.04) !important;
+      z-index: 10;
+      box-shadow:
+        0 0 0 7px #171512,
+        0 0 0 8px #2c2926,
+        0 36px 70px rgba(0,0,0,0.75),
+        0 0 50px rgba(196,168,130,0.1);
+    }
+
+    .sq-post video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sq-post-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.15);
+      transition: background 0.3s;
+      border-radius: 14px;
+    }
+
+    .sq-post-overlay svg {
+      width: 36px;
+      height: 36px;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+
+    .sq-post.playing .sq-post-overlay,
+    .sq-post:hover .sq-post-overlay { background: rgba(0,0,0,0); }
+    .sq-post.playing .sq-post-overlay svg,
+    .sq-post:hover .sq-post-overlay svg { opacity: 0; }
+
+    .sq-photos-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .sq-photo {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 5px #171512,
+        0 0 0 6px #2c2926,
+        0 12px 30px rgba(0,0,0,0.55);
+      transition: transform 0.4s cubic-bezier(0.23,1,0.32,1);
+    }
+
+    .sq-photos-row .sq-photo:nth-child(1) { transform: rotate(-3deg) translateY(4px); }
+    .sq-photos-row .sq-photo:nth-child(2) { transform: rotate(0deg); z-index: 2; }
+    .sq-photos-row .sq-photo:nth-child(3) { transform: rotate(3deg) translateY(4px); }
+
+    .sq-photo:hover {
+      transform: rotate(0deg) translateY(-6px) scale(1.06) !important;
+      z-index: 10;
+    }
+
+    .sq-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── POSTS GRID (1080×1080 — iskambil kartı düzeni) ──────────────── */
@@ -1630,7 +1748,6 @@
       .mindiary-section { padding: 80px 28px; }
       .mindiary-inner { grid-template-columns: 1fr; gap: 48px; }
       .mindiary-screens { height: 360px; }
-
       .projects { padding: 0 28px 60px; }
 
       .project,
@@ -1647,7 +1764,6 @@
 
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
-
 
     /* ── RESUME BUTTON ──────────────────────────────────────────────── */
     .resume-btn {
@@ -1788,7 +1904,7 @@
         </p>
         <div class="mindiary-note" id="mindiary-note">
           <p>
-            Bu çalışma, stratejiden üretime kadar tüm yaratıcı süreci kapsayan bir content engine yaklaşımının sonucudur. Araştırma, fikir geliştirme ve üretim tek bir yapı içinde tasarlanmış ve bu portfolyo da o sistemin çıktısı olarak ortaya çıkmıştır.
+            Kendi inisiyatifimle kurduğum bir sistemin çıktısı. Stratejiden üretime kadar tüm akışı tek bir yapıda birleştiren uçtan uca bir content engine geliştirdim — bu portfolyo da o sürecin somut bir yansıması.
           </p>
         </div>
         <div class="mindiary-tech">
@@ -1846,7 +1962,7 @@
 
   <!-- CONTACT -->
   <section class="contact">
-
+    <p class="contact-eyebrow" data-i18n="contact.eyebrow">Birlikte çalışalım</p>
     <h2 id="contact-title">Yeni fırsatlara açığım.<br><em>Tanışalım.</em></h2>
     <div class="contact-links" id="contact-links"></div>
   </section>
@@ -1880,7 +1996,32 @@
 
     const PROJECTS = [
       {
+        title: "Subscription Box Brand",
+        flip: true,
+        desc_tr: `Bir craft subscription box markası için AI araçları kullanarak UGC estetiğinde lifestyle görseller ve kısa form video serileri ürettim. Projedeki tüm görseller, sahneler ve video içi görsel materyaller sıfırdan tarafımdan üretildi.<br><br>Görsel üretim sürecinde sahne, karakter, ürün ve atmosferi birlikte kurgulayan fotoğrafçı-brief mantığında prompt yapıları kullandım. Doğal ışık, iPhone çekimi hissi ve candid kadrajlarla gerçek kullanıcı deneyimine yakın bir görsel dil oluşturuldu.<br><br>Video tarafında Kling AI ile aksiyon, tempo ve duygusal tonu tanımlayan çok katmanlı prompt yapıları tasarlayarak farklı lifestyle senaryolarından oluşan kısa video sekansları ürettim.`,
+        desc_en: `I produced UGC-aesthetic lifestyle visuals and short-form video series for a craft subscription box brand using AI tools. Every image, scene, and in-video visual in the project was generated from scratch by me.<br><br>For image production, I used photographer-brief style prompt structures that shaped the scene, character, product, and atmosphere together. Natural lighting, iPhone-shot feel, and candid framing created a visual language close to real user-generated content.<br><br>On the video side, I designed multi-layered prompts with Kling AI that defined action, pace, and emotional tone — producing short video sequences across different lifestyle scenarios.`,
+        category: "AI MEDIA CREATOR",
+        tags: ["Midjourney", "Freepik AI", "ChatGPT", "Claude", "Veo 3", "Runway", "After Effects", "Kling AI"],
+        mockup: "tablet",
+        videos: [
+          "foxelli/images/ekran_1.png",
+          "foxelli/images/ekran_2.png",
+          "foxelli/images/ekran_3.png"
+        ],
+        posts: [
+          "foxelli/videos/Video_1.mp4",
+          "foxelli/videos/video_2.mp4",
+          "foxelli/videos/video_3.mp4"
+        ],
+        photos: [
+          "foxelli/images/photo_2.png",
+          "foxelli/images/photo_3.png",
+          "foxelli/images/photo_4.png"
+        ]
+      },
+      {
         title: "kitUP",
+        flip: false,
         desc_tr: "Ouro Media'da Marketing Designer olarak başladığım yolculuk, kısa sürede Marketing Design Lead rolüne evrildi. Güçlü hikâye anlatımı, kullanıcı psikolojisini temel alan hook yapıları ve performans odaklı kreatif stratejilerle; UGC videolar, motion graphics ve kısa form reklam içerikleri tasarladım. Ürettiğim kreatiflerde temel odak, ilk saniyede dikkat çeken anlatı kurgusu ve duygusal bağ kuran senaryolar oluşturmaktı.",
         desc_en: "I started my journey at Ouro Media as a Marketing Designer, which soon evolved into a Marketing Design Lead role. By focusing on strong storytelling, hook structures based on user psychology, and performance-driven creative strategies, I designed UGC videos, motion graphics, and short-form advertising content. The core focus of my work was building narratives that capture attention in the first seconds and creating scenarios that establish an emotional connection with the audience.",
         category: "MARKETING DESIGN LEAD",
@@ -1900,6 +2041,7 @@
       },
       {
         title: "Mindguru",
+        flip: true,
         desc_tr: "Mindguru, kullanıcıların daha iyi alışkanlıklar geliştirmesine yardımcı olmayı amaçlayan bir alışkanlık ve kişisel gelişim uygulamasıdır. Bu ürün için, hikâye anlatımı ve kullanıcı psikolojisine dayanan hook yapıları kullanarak performans odaklı reklam kreatifleri ürettim.\n\nÇalışmalarım; UGC tarzı videolar, motion grafikler ve kısa form reklam konseptlerini kapsıyordu. Üretilen içeriklerde temel amaç, ilk saniyede dikkat çekmek ve kendini geliştirmek isteyen kullanıcılarla duygusal bir bağ kurabilen anlatılar oluşturmaktı.",
         desc_en: "Mindguru is a habit-building and personal growth app focused on helping users build better routines. For the product, I created performance-driven ad creatives using storytelling and psychology-based hook structures.\n\nMy work included UGC-style videos, motion graphics, and short-form advertising concepts designed to capture attention instantly and resonate with audiences interested in self-development.",
         category: "MARKETING DESIGN LEAD",
@@ -1908,6 +2050,7 @@
       },
       {
         title: "Türkiye Petrolleri",
+        flip: false,
         desc_tr: "One Dijital Ajans'ta Art Director olarak yürüttüğüm bu projede, Türkiye Petrolleri için hazırlanan kurumsal tanıtım videosunun yaratıcı sürecini baştan sona yönettim.<br><br>Hikâye kurgusu ve storyboard ile başlayan süreçte; grafik tasarımlar ve motion kurgusu oluşturuldu. Video tasarımları Photoshop, animasyon ve motion çalışmaları After Effects kullanılarak üretildi.",
         desc_en: "As an Art Director at One Digital Agency, I led the creative production of a corporate promotional video for Turkish Petroleum from concept to final delivery.<br><br>The process began with story development and storyboard design, followed by the creation of graphic assets and motion structure. Visual elements were designed in Photoshop, while animation and motion work were produced using After Effects.",
         category: "ART DIRECTOR",
@@ -1917,6 +2060,7 @@
       },
       {
         title: "Lotus — Fevkinde Kreatif Ajansı",
+        flip: true,
         title_tr: "Lotus —<br>Fevkinde Kreatif Ajansı",
         desc_tr: "Fevkinde Kreatif Ajansı bünyesinde Lotus, Batiste ve Hepsiburada gibi köklü markalara aylık sosyal medya içerikleri ürettim; motion ve statik formatları bir arada yönettim.<br><br>Kampanya konseptleri geliştirdim, her markanın tonuna ve hedef kitlesine uygun görsel yönler belirledim. Farklı platformlara özel sosyal medya görselleri, kısa form motion içerikler ve dijital materyaller tasarladım. Kurumsal kimlik projelerinde görsel rehberler ve marka materyalleri hazırladım; fikirleri ve kampanya yönlerini müşteriye aktaran sunumlar oluşturdum.",
         desc_en: "Produced monthly social media content for brands such as Lotus, Batiste, and Hepsiburada within Fevkinde Digital & Creative Agency, managing both motion and static formats.<br><br>Developed campaign concepts and visual directions aligned with each brand's tone and audience. Designed platform-specific social media assets, short-form motion content, and digital materials.<br><br>Also contributed to corporate identity projects by preparing visual guidelines, brand assets, and client presentations communicating creative concepts and campaign directions.",
@@ -1926,6 +2070,7 @@
       },
       {
         title: "Batiste — Fevkinde Kreatif Ajansı",
+        flip: false,
         title_tr: "Batiste —<br>Fevkinde Kreatif Ajansı",
         desc_tr: "Fevkinde Kreatif Ajansı bünyesinde Batiste için aylık sosyal medya içerik üretimini yürüttüm. Markanın tonunu ve hedef kitlesini merkeze alarak görsel yönler belirledim; motion ve statik formatları bir arada yöneterek farklı platformlara özel kampanya kreatifleri tasarladım.<br><br>Konsept ideasyonundan üretim sürecine kadar her aşamada aktif rol üstlendim; marka kimliğiyle tutarlı animasyonlar, sosyal medya görselleri ve dijital materyaller geliştirdim.",
         desc_en: "Managed monthly social media content production for Batiste, defining visual directions aligned with the brand's tone and target audience. Designed platform-specific campaign creatives across both motion and static formats.<br><br>Contributed to the full creative process from concept ideation to final production, developing animations, social media visuals, and digital assets consistent with the brand's visual identity.",
@@ -1935,6 +2080,7 @@
       },
       {
         title: "Aztek Teknoloji",
+        flip: true,
         title_en: "Aztek Technology",
         desc_tr: "Teknik bir markanın dilini görsel anlatıya dönüştürmek — bu projenin asıl çıkış noktasıydı. İçerik planlaması ve tasarım süreçlerinde eş zamanlı rol aldım; neyin ne zaman söyleneceğini belirlerken aynı anda nasıl görüneceğini de şekillendirdim.<br><br>Platform ritmine uyan, marka kimliğiyle konuşan ve hedef kitleyle gerçek bir temas kuran bir içerik akışı kurdum.",
         desc_en: "Translated the language of a technical brand into a clear visual narrative for Aztek Teknoloji. Contributed to both content planning and design processes, shaping not only what should be communicated but also how it should visually appear.<br><br>Built a content flow aligned with platform dynamics, the brand's visual identity, and the expectations of its target audience, creating a communication style that establishes a genuine connection with viewers.",
@@ -1945,6 +2091,7 @@
       },
       {
         title: "One Dijital Dijital Pazarlama Ajansı",
+        flip: false,
         title_en: "One Digital Marketing & Advertising Agency",
         desc_tr: "One Dijital Ajans'ta Art Director olarak birbirinden farklı sektörlerdeki markalara sosyal medya içerikleri, kampanya görselleri ve marka kimliği çalışmaları ürettim.<br><br>Her projede müşteriyle doğrudan iletişime geçerek ihtiyacı yerinde anladım; marka sesini, hedef kitleyi ve platformun dinamiklerini bir araya getiren görsel sistemler tasarladım. Post tasarımından reklam kreatiflere, kurumsal sunum materyallerinden video içeriklere uzanan geniş bir üretim yelpazesinde çalıştım.",
         desc_en: "As an Art Director at One Digital Creative & Marketing Agency, I produced social media content, campaign visuals, and brand identity work for clients across a wide range of industries.<br><br>On each project, I engaged directly with the client to understand their needs firsthand, then designed visual systems that brought together the brand voice, target audience, and platform dynamics. My work spanned a broad production range — from post design and ad creatives to corporate presentation materials and video content.",
@@ -1962,6 +2109,7 @@
       },
       {
         title: "Kukumav Kuşları — Müzik\u00A0Klibi",
+        flip: true,
         title_en: "Kukumav Kuşları — Official Music Video",
         desc: "Kukumav Kuşları'nın resmi müzik videosu için After Effects'te tipografi animasyonları tasarladım. Müziğin enerjisini ekrana taşımak, her sahneyi ritimle buluşturmak bu projenin özüydü — renkli ve dinamik bir görsel dil ortaya çıktı.",
         desc_en: "Designed typographic animations in After Effects for the official music video of Kukumav Kuşları. The core of the project was translating the energy of the music onto the screen and aligning each visual moment with the rhythm of the track.<br><br>The result was a colorful and dynamic visual language that moved in sync with the music.",
@@ -1973,7 +2121,8 @@
       },
       {
         title: "code8bit — VR\u00A0Technologies",
-        desc_tr: "Kişisel ilgi alanım doğrultusunda Unreal Engine'i sıfırdan öğrenerek Blueprint sistemi ve 3D ortam tasarımı konularında yetkinlik kazandım. Code8bit staj sürecinde bu bilgi birikimini uygulamaya dökerek uzaktan çalışma dönemine yönelik VR tabanlı toplantı ve sunum deneyimleri tasarladım.<br><br>Fiziksel bir ofise ihtiyaç duymadan ekiplerin aynı sanal ortamda bir araya gelebileceği ve sunumları eş zamanlı olarak deneyimleyebileceği kurgular geliştirdim. Bosch gibi küresel markalar için yürütülen projelerde aktif rol alarak VR teknolojilerinin profesyonel iletişim ve sunum süreçlerinde etkin kullanımına katkı sağladım.",
+        flip: false,
+        desc_tr: "Kişisel merakımla Unreal Engine'i sıfırdan öğrendim; Blueprint sistemini ve 3D ortam tasarımını kavrayarak kendi kendime ilerledim. Code8bit stajı sürecinde bu birikimi pratiğe döktüm: uzaktan çalışma çağı için VR tabanlı toplantı ve sunum deneyimleri tasarladım.<br><br>Fiziksel bir ofis olmadan ekiplerin aynı sanal alanda bir araya gelebileceği, sunumları gerçek zamanlı olarak deneyimleyebileceği ortamlar kurguladım. Bosch gibi küresel markalar için geliştirilen projelerde aktif rol alarak VR'ın profesyonel bir iletişim ve sunum aracı olarak nasıl kullanılabileceğini bizzat deneyimledim.",
         desc_en: "Learned Unreal Engine independently out of personal curiosity, developing an understanding of the Blueprint system and 3D environment design. During my internship at Code8bit, I transformed this knowledge into practical work by designing VR-based meeting and presentation experiences for the era of remote collaboration.<br><br>Created virtual environments where teams could gather, present, and interact in real time without the need for a physical office. Contributed to projects developed for global brands such as Bosch, gaining firsthand experience in how VR can be used as a professional communication and presentation tool.",
         category: "Stajyer",
         tags: ["Unreal Engine", "VR", "3D"],
@@ -2007,7 +2156,7 @@
         'hero.scroll':     'PROJELERİ KEŞFET',
         'mindiary.eyebrow':'KİŞİSEL PROJE · 2026',
         'mindiary.desc':   'Mindiary, tarafımdan geliştirilen zihinsel farkındalık ve kişisel gelişim alanında bir içerik markası. Marka için sıfırdan bir AI içerik motoru geliştirdim — içerik stratejisi üretiminden carousel tasarımına, rakip analizinden sosyal medya yönetimine kadar tüm süreci tek bir akışta birleştiren bir sistem.',
-        'mindiary.note':   '<p>Bu çalışma, stratejiden üretime kadar tüm yaratıcı süreci kapsayan bir content engine yaklaşımının sonucudur. Araştırma, fikir geliştirme ve üretim tek bir yapı içinde tasarlanmış ve bu portfolyo da o sistemin çıktısı olarak ortaya çıkmıştır.</p>',
+        'mindiary.note':   '<p>Kendi inisiyatifimle kurduğum bir sistemin çıktısı. Stratejiden üretime kadar tüm akışı tek bir yapıda birleştiren uçtan uca bir content engine geliştirdim — bu portfolyo da o sürecin somut bir yansıması.</p>',
         'hoff.eyebrow':    'MARKA KURUCUSU · 2018',
         'hoff.status':     'EYLÜL 2026\'DA DEVAM EDECEK',
         'hoff.desc':       'Hoff Concept, el yapımı ev kokusu ve mum ürünlerinden oluşan, sıfırdan kurduğum bir markadır. Marka kimliğinden ambalaj tasarımına, içerik üretiminden dijital pazarlamaya kadar tüm süreci bağımsız olarak yönetiyorum.',
@@ -2197,7 +2346,7 @@
 
       PROJECTS.forEach((project, i) => {
         const section = document.createElement('section');
-        section.className = 'project' + (i % 2 === 1 ? ' flip' : '');
+        section.className = 'project' + ((project.flip !== undefined ? project.flip : (i % 2 === 1)) ? ' flip' : '');
 
         // — TEXT —
         const textDiv = document.createElement('div');
@@ -2267,11 +2416,22 @@
           });
 
         } else if (project.mockup === 'tablet') {
-          phonesDiv.className = project.videos.length >= 3
-            ? 'project-phones tablets-trio'
-            : 'project-phones project-tablet';
+          const mediaList = project.videos && project.videos.length ? project.videos : [];
+          const hasPosts  = project.posts && project.posts.length;
+          const IMG_EXTS  = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
-          project.videos.forEach(src => {
+          if (hasPosts) {
+            phonesDiv.className = 'project-phones tablet-posts-combo';
+          } else {
+            phonesDiv.className = mediaList.length >= 3
+              ? 'project-phones tablets-trio'
+              : 'project-phones project-tablet';
+          }
+
+          const tabletsDiv = document.createElement('div');
+          tabletsDiv.className = mediaList.length >= 3 ? 'tablets-trio' : 'project-tablet';
+
+          mediaList.forEach(src => {
             const wrap = document.createElement('div');
             wrap.className = 'tablet-wrap';
 
@@ -2281,11 +2441,12 @@
             const screen = document.createElement('div');
             screen.className = 'tablet-screen';
 
-            const isImage = /\.(png|jpg|jpeg|webp|gif)$/i.test(src);
+            const ext     = src.split('.').pop().toLowerCase();
+            const isImage = IMG_EXTS.includes(ext);
 
             if (isImage) {
               const img = document.createElement('img');
-              img.src = src;
+              img.src = src; img.alt = ''; img.loading = 'lazy';
               screen.appendChild(img);
               tablet.appendChild(screen);
             } else {
@@ -2310,16 +2471,11 @@
               addScrubber(video, tablet);
 
               tablet.addEventListener('mouseenter', () => {
-                video.play()
-                  .then(() => tablet.classList.add('playing'))
-                  .catch(() => {});
+                video.play().then(() => tablet.classList.add('playing')).catch(() => {});
               });
-
               tablet.addEventListener('mouseleave', () => {
-                video.pause();
-                tablet.classList.remove('playing');
+                video.pause(); tablet.classList.remove('playing');
               });
-
               tablet.addEventListener('click', () => {
                 if (video.paused) {
                   video.play()
@@ -2330,11 +2486,66 @@
                   tablet.classList.remove('playing');
                 }
               });
-            }
+            } // end else (video)
 
             wrap.appendChild(tablet);
-            phonesDiv.appendChild(wrap);
+            tabletsDiv.appendChild(wrap);
           });
+
+          phonesDiv.appendChild(tabletsDiv);
+
+          if (hasPosts) {
+            const postsRow = document.createElement('div');
+            postsRow.className = 'sq-posts-row';
+
+            const SQ_IMG_EXTS = ['png','jpg','jpeg','webp','gif','avif'];
+            project.posts.forEach(src => {
+              const sq  = document.createElement('div');
+              sq.className = 'sq-post';
+              const sqExt   = src.split('.').pop().toLowerCase();
+              const sqIsImg = SQ_IMG_EXTS.includes(sqExt);
+              if (sqIsImg) {
+                const img = document.createElement('img');
+                img.src = src; img.alt = ''; img.loading = 'lazy';
+                img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+                sq.appendChild(img);
+              } else {
+                const vid = document.createElement('video');
+                vid.src = src; vid.loop = true; vid.muted = true;
+                vid.playsInline = true; vid.preload = 'metadata';
+                const ov  = document.createElement('div');
+                ov.className = 'sq-post-overlay';
+                ov.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+                  <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="white"/>
+                </svg>`;
+                sq.appendChild(vid); sq.appendChild(ov);
+                sq.addEventListener('mouseenter', () => { vid.play().then(() => sq.classList.add('playing')).catch(() => {}); });
+                sq.addEventListener('mouseleave', () => { vid.pause(); sq.classList.remove('playing'); });
+                sq.addEventListener('click', () => {
+                  if (vid.paused) { vid.play().then(() => sq.classList.add('playing')).catch(() => {}); }
+                  else { vid.pause(); sq.classList.remove('playing'); }
+                });
+              }
+              postsRow.appendChild(sq);
+            });
+            phonesDiv.appendChild(postsRow);
+
+            // — PHOTO GRID (smaller squares) —
+            if (project.photos && project.photos.length) {
+              const photosRow = document.createElement('div');
+              photosRow.className = 'sq-photos-row';
+              project.photos.forEach(src => {
+                const sp  = document.createElement('div');
+                sp.className = 'sq-photo';
+                const img = document.createElement('img');
+                img.src = src; img.alt = ''; img.loading = 'lazy';
+                sp.appendChild(img);
+                photosRow.appendChild(sp);
+              });
+              phonesDiv.appendChild(photosRow);
+            }
+          }
 
         } else if (project.mockup === 'tablets-quint') {
           phonesDiv.className = 'project-phones tablets-quint';
@@ -2618,7 +2829,6 @@
       document.title = name + ' — AI Marketing Design Lead';
       document.getElementById('mindiary-desc').textContent = I18N[lang]['mindiary.desc'];
       document.getElementById('mindiary-note').innerHTML  = I18N[lang]['mindiary.note'];
-
       document.getElementById('contact-title').innerHTML  =
         I18N[lang]['contact.title'] + '<br><em>' + I18N[lang]['contact.em'] + '</em>';
       document.getElementById('resume-btn-label').textContent = I18N[lang]['resume.btn'];
@@ -2643,7 +2853,7 @@
 
     // ── RESUME ────────────────────────────────────────────────────────
     function openResume() {
-      window.open('resume_en.html', '_blank');
+      window.open(lang === 'tr' ? 'resume.html' : 'resume_en.html', '_blank');
     }
 
     // ── FIXED TOOL COLUMNS ───────────────────────────────────────────
@@ -2655,7 +2865,7 @@
       ];
       const RIGHT_TOOLS = [
         'CapCut', 'VEED', 'After Effects', 'Premiere Pro',
-        'Foreplay', 'Meta Ads Library', 'TikTok Creative Library',
+        'Foreplay', 'Meta Ads Library', 'VEO 3',
         'VS Code', 'GitHub', 'API Integrations',
         'Notion', 'Airtable', 'Slack', 'Adobe Suite'
       ];
